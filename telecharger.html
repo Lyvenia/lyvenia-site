@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Télécharger RODIA — Lyvenia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lyvenia.css">
+  <style>
+    .dl-hero {
+      padding: 90px 0 70px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .dl-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -.03em;
+      margin-bottom: .75rem;
+    }
+    .dl-hero p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 1rem 2.5rem;
+      background: var(--green);
+      color: #e8f0e8;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .dl-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px rgba(13,31,13,.25);
+      color: #e8f0e8;
+    }
+    .dl-btn-icon { font-size: 1.3rem; }
+    .dl-version {
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: .8rem;
+    }
+    .dl-requirements {
+      padding: 70px 0;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .dl-requirements h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      letter-spacing: -.01em;
+    }
+    .dl-req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .dl-req-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .dl-req-icon { font-size: 1.5rem; margin-bottom: .5rem; }
+    .dl-req-card strong {
+      display: block;
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .3rem;
+    }
+    .dl-req-card span { font-size: .825rem; color: var(--text-muted); }
+    .dl-steps {
+      padding: 70px 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .dl-steps h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      letter-spacing: -.01em;
+    }
+    .dl-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 600px;
+    }
+    .dl-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .dl-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--rose);
+      font-size: .875rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dl-step-content strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .25rem;
+    }
+    .dl-step-content span { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+    .dl-support {
+      padding: 70px 0;
+      background: var(--green);
+      text-align: center;
+    }
+    .dl-support h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #e8f0e8;
+      margin-bottom: .75rem;
+      letter-spacing: -.01em;
+    }
+    .dl-support p { color: rgba(232,240,232,.55); font-size: .9rem; margin-bottom: 1.75rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="lh-nav">
+    <div class="lh-container lh-nav-inner">
+      <a href="/" class="lh-logo">Lyvenia</a>
+      <a href="/rodia.html" class="lh-btn-nav">← RODIA</a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="dl-hero">
+    <div class="lh-container">
+      <div class="lh-badge">Windows · Téléchargement gratuit</div>
+      <h1>Télécharger RODIA</h1>
+      <p>Installer RODIA sur votre poste et connectez-vous avec vos identifiants Lyvenia.</p>
+      <a href="https://github.com/Lyvenia/rodia-releases/releases/latest/download/RODIA.exe"
+         class="dl-btn">
+        <span class="dl-btn-icon">⬇</span>
+        Télécharger RODIA.exe
+      </a>
+      <p class="dl-version">Version 1.0.0 · Windows 10 / 11 · ~80 Mo</p>
+    </div>
+  </section>
+
+  <!-- ══ REQUIREMENTS ══ -->
+  <section class="dl-requirements">
+    <div class="lh-container">
+      <h2>Configuration requise</h2>
+      <div class="dl-req-grid">
+        <div class="dl-req-card">
+          <div class="dl-req-icon">🖥️</div>
+          <strong>Système d'exploitation</strong>
+          <span>Windows 10 ou Windows 11 (64 bits)</span>
+        </div>
+        <div class="dl-req-card">
+          <div class="dl-req-icon">🔌</div>
+          <strong>Adaptateur OBD2</strong>
+          <span>Adaptateur ELM327 compatible (USB ou Bluetooth)</span>
+        </div>
+        <div class="dl-req-card">
+          <div class="dl-req-icon">🌐</div>
+          <strong>Connexion internet</strong>
+          <span>Requise pour l'analyse IA — mode hors-ligne jusqu'à 5 jours</span>
+        </div>
+        <div class="dl-req-card">
+          <div class="dl-req-icon">🔑</div>
+          <strong>Compte Lyvenia</strong>
+          <span>Identifiants fournis par email après souscription</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STEPS ══ -->
+  <section class="dl-steps">
+    <div class="lh-container">
+      <h2>Installation en 3 étapes</h2>
+      <div class="dl-steps-list">
+        <div class="dl-step">
+          <div class="dl-step-num">1</div>
+          <div class="dl-step-content">
+            <strong>Téléchargez RODIA.exe</strong>
+            <span>Cliquez sur le bouton ci-dessus. Le fichier fait environ 80 Mo. Aucune installation complexe — c'est un exécutable autonome.</span>
+          </div>
+        </div>
+        <div class="dl-step">
+          <div class="dl-step-num">2</div>
+          <div class="dl-step-content">
+            <strong>Lancez RODIA.exe</strong>
+            <span>Double-cliquez sur le fichier téléchargé. Windows peut afficher un avertissement SmartScreen — cliquez "Exécuter quand même". RODIA s'ouvre dans votre navigateur.</span>
+          </div>
+        </div>
+        <div class="dl-step">
+          <div class="dl-step-num">3</div>
+          <div class="dl-step-content">
+            <strong>Connectez-vous</strong>
+            <span>Saisissez l'email et le mot de passe reçus par email. La licence est automatiquement liée à votre poste. Branchez votre adaptateur OBD2 et c'est parti.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SUPPORT ══ -->
+  <section class="dl-support">
+    <div class="lh-container">
+      <h2>Un problème ? On est là.</h2>
+      <p>Notre équipe répond sous 24h, du lundi au vendredi.</p>
+      <a href="mailto:contact@lyvenia.fr" class="lh-btn-primary">contact@lyvenia.fr</a>
+    </div>
+  </section>
+
+  <footer class="lh-footer">
+    <div class="lh-container lh-footer-inner">
+      <span class="lh-logo">Lyvenia</span>
+      <div class="lh-footer-links">
+        <a href="/rodia.html">RODIA</a>
+        <a href="mailto:contact@lyvenia.fr">Contact</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/cgv.html">CGV</a>
+        <a href="/politique-confidentialite.html">Confidentialité</a>
+      </div>
+      <span class="lh-footer-copy">© 2026 Lyvenia — Bastien Rodrigues de Souza Meireles</span>
+    </div>
+  </footer>
+
+</body>
+</html>
