@@ -3,220 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RODIA by Lyvenia — Diagnostic OBD2 pour professionnels</title>
-  <meta name="description" content="RODIA est le logiciel de diagnostic OBD2 intelligent pour les flottes professionnelles : taxis, ambulances, VSL. Analyse IA des codes DTC, gestion de flotte, rapports PDF.">
+  <title>Lyvenia — Logiciels métier pour les professionnels du terrain</title>
+  <meta name="description" content="Lyvenia conçoit des logiciels métier pour les professionnels du terrain. Découvrez RODIA, notre solution de diagnostic OBD2 intelligente pour flottes professionnelles.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lyvenia.css">
 </head>
 <body>
 
   <!-- ══════════ NAV ══════════ -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">RODIA <span>by Lyvenia</span></a>
-      <div class="nav-links">
-        <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a href="#tarifs" class="btn btn-primary nav-cta">Commencer</a>
+  <nav class="lh-nav">
+    <div class="lh-container lh-nav-inner">
+      <span class="lh-logo">Lyvenia</span>
+      <a href="mailto:contact@lyvenia.fr" class="lh-btn-nav">Contact</a>
     </div>
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
-  <section class="hero">
-    <div class="container">
-      <div class="badge">Logiciel de diagnostic professionnel</div>
-      <h1>Le diagnostic OBD2<br>intelligent pour vos flottes</h1>
-      <p class="hero-sub">RODIA analyse vos codes DTC avec l'intelligence artificielle, génère des rapports complets et vous aide à maintenir votre flotte en parfait état — que vous soyez taxi, ambulancier ou gestionnaire VSL.</p>
-      <div class="hero-actions">
-        <a href="#tarifs" class="btn btn-primary btn-lg">Voir les tarifs</a>
-        <a href="#fonctionnalites" class="btn btn-outline btn-lg">Découvrir RODIA</a>
-      </div>
-      <div class="hero-proof">
-        <span>✓ Sans abonnement annuel bloquant</span>
-        <span>✓ 1 licence = 1 poste</span>
-        <span>✓ Support français</span>
-      </div>
+  <section class="lh-hero">
+    <div class="lh-container">
+      <div class="lh-badge">Éditeur de logiciels · France</div>
+      <h1>Des logiciels métier<br>pour les professionnels<br>du terrain</h1>
+      <p class="lh-hero-sub">Lyvenia conçoit des outils simples, puissants et fiables pour les travailleurs du quotidien — ceux qui n'ont pas le temps de se battre avec leur technologie.</p>
     </div>
   </section>
 
-  <!-- ══════════ FEATURES ══════════ -->
-  <section class="features" id="fonctionnalites">
-    <div class="container">
-      <div class="section-label">Fonctionnalités</div>
-      <h2>Tout ce dont vous avez besoin pour diagnostiquer et gérer votre flotte</h2>
-      <div class="features-grid">
+  <!-- ══════════ PRODUITS ══════════ -->
+  <section class="lh-products">
+    <div class="lh-container">
+      <div class="lh-section-label">Nos logiciels</div>
+      <h2>Une suite pensée pour le terrain</h2>
 
-        <div class="feature-card">
-          <div class="feature-icon">🔌</div>
-          <h3>Connexion OBD2 directe</h3>
-          <p>Branchez votre adaptateur ELM327 et RODIA lit instantanément les codes défauts de n'importe quel véhicule compatible OBD2 — tous modèles, toutes marques.</p>
-        </div>
+      <div class="lh-products-grid">
 
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>Analyse IA des codes DTC</h3>
-          <p>Chaque code défaut est analysé par intelligence artificielle. RODIA vous explique la cause probable, l'urgence et les actions à mener — en français, clairement.</p>
-        </div>
+        <!-- RODIA -->
+        <a href="/rodia.html" class="lh-product-card lh-product-rodia">
+          <div class="lh-product-logo">RODIA</div>
+          <div class="lh-product-tag">Diagnostic automobile</div>
+          <p>Logiciel de diagnostic OBD2 intelligent pour flottes professionnelles. Analyse IA des codes DTC, gestion de flotte et rapports PDF en un clic.</p>
+          <div class="lh-product-cta">Découvrir RODIA →</div>
+          <div class="lh-product-for">Taxis · Ambulances · VSL · Garages</div>
+        </a>
 
-        <div class="feature-card">
-          <div class="feature-icon">🚗</div>
-          <h3>Gestion de flotte</h3>
-          <p>Suivez l'historique de diagnostic de chaque véhicule, recevez des alertes kilométrage et identifiez les codes récurrents sur l'ensemble de votre flotte.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📄</div>
-          <h3>Rapports PDF professionnels</h3>
-          <p>Générez des rapports de diagnostic complets en un clic — à remettre à vos clients ou à archiver. Avec votre logo et vos coordonnées.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Tableau de bord flotte</h3>
-          <p>Vue d'ensemble de la santé de votre flotte : véhicules en alerte, diagnostics récents, scores de santé. Tout ce qu'il faut pour prioriser vos interventions.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Sécurisé & hors-ligne</h3>
-          <p>Votre licence est liée à votre poste. Le mode hors-ligne vous permet de travailler jusqu'à 5 jours sans connexion internet — votre clé API ne quitte jamais nos serveurs.</p>
+        <!-- Futur logiciel -->
+        <div class="lh-product-card lh-product-soon">
+          <div class="lh-soon-badge">Bientôt</div>
+          <div class="lh-product-logo">???</div>
+          <div class="lh-product-tag">Prochain logiciel</div>
+          <p>Un nouvel outil métier est en cours de développement. Restez informé en nous contactant.</p>
+          <div class="lh-product-cta">Prochainement disponible</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══════════ WHO ══════════ -->
-  <section class="who">
-    <div class="container">
-      <div class="section-label">Pour qui ?</div>
-      <h2>Conçu pour les professionnels du transport et du garage</h2>
-      <div class="who-grid">
-        <div class="who-card">
-          <div class="who-icon">🚕</div>
-          <h3>Taxis & VTC</h3>
-          <p>Gérez votre véhicule ou une petite flotte, anticipez les pannes et évitez les immobilisations.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">🚑</div>
-          <h3>Ambulances & VSL</h3>
-          <p>Maintenez votre flotte opérationnelle avec des diagnostics rapides entre deux courses.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">🔧</div>
-          <h3>Garages & flottes PME</h3>
-          <p>Gérez des dizaines de véhicules, suivez leur historique et exportez des rapports clients.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ══════════ ABOUT ══════════ -->
+  <section class="lh-about">
+    <div class="lh-container lh-about-inner">
 
-  <!-- ══════════ PRICING ══════════ -->
-  <section class="pricing" id="tarifs">
-    <div class="container">
-      <div class="section-label">Tarifs</div>
-      <h2>Simple, transparent, sans surprise</h2>
-      <p class="pricing-sub">Abonnement mensuel ou annuel. Résiliation à tout moment. 1 poste par licence.</p>
-
-      <div class="pricing-grid">
-
-        <div class="pricing-card">
-          <div class="pricing-tier">Taxi</div>
-          <div class="pricing-price"><span class="price-amount">39</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>5 véhicules</strong></div>
-          <ul class="pricing-features">
-            <li>✓ Diagnostic OBD2 illimité</li>
-            <li>✓ Analyse IA des codes DTC</li>
-            <li>✓ Gestion de flotte</li>
-            <li>✓ Rapports PDF</li>
-            <li>✓ Support email</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
-        </div>
-
-        <div class="pricing-card pricing-featured">
-          <div class="pricing-badge">Le plus populaire</div>
-          <div class="pricing-tier">PME</div>
-          <div class="pricing-price"><span class="price-amount">79</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>15 véhicules</strong></div>
-          <ul class="pricing-features">
-            <li>✓ Tout le plan Taxi</li>
-            <li>✓ Tableau de bord avancé</li>
-            <li>✓ Alertes kilométrage</li>
-            <li>✓ Export Excel flotte</li>
-            <li>✓ Support prioritaire</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary btn-block coming-soon">Bientôt disponible</a>
-        </div>
-
-        <div class="pricing-card">
-          <div class="pricing-tier">Flotte</div>
-          <div class="pricing-price"><span class="price-amount">139</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>35 véhicules</strong></div>
-          <ul class="pricing-features">
-            <li>✓ Tout le plan PME</li>
-            <li>✓ Analyse de patterns flotte</li>
-            <li>✓ Historique complet</li>
-            <li>✓ Multi-techniciens</li>
-            <li>✓ Support téléphonique</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
-        </div>
-
-        <div class="pricing-card">
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-price"><span class="price-amount">199</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>60 véhicules</strong></div>
-          <ul class="pricing-features">
-            <li>✓ Tout le plan Flotte</li>
-            <li>✓ Monitoring temps réel</li>
-            <li>✓ Analyse audio moteur</li>
-            <li>✓ Onboarding personnalisé</li>
-            <li>✓ SLA garanti</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
-        </div>
-
+      <div>
+        <div class="lh-section-label">Notre mission</div>
+        <h2>Technologie au service du terrain</h2>
+        <p>Lyvenia est une entreprise française indépendante. Nous croyons que les professionnels du terrain méritent des outils à la hauteur de leur exigence — sans abonnement opaque, sans interface inutile, sans friction.</p>
+        <p>Chaque logiciel que nous créons est pensé avec ceux qui l'utilisent, pour un usage quotidien dans des conditions réelles.</p>
       </div>
 
-      <p class="pricing-note">Plus de 60 véhicules ? <a href="mailto:contact@lyvenia.fr">Contactez-nous</a> pour un tarif sur mesure.</p>
+      <div class="lh-about-values">
+        <div class="lh-value">
+          <div class="lh-value-icon">🇫🇷</div>
+          <div>
+            <strong>Conçu en France</strong>
+            <span>Support, hébergement et développement 100% français</span>
+          </div>
+        </div>
+        <div class="lh-value">
+          <div class="lh-value-icon">🔒</div>
+          <div>
+            <strong>Sécurisé & privé</strong>
+            <span>Vos données restent chez vous. Toujours.</span>
+          </div>
+        </div>
+        <div class="lh-value">
+          <div class="lh-value-icon">⚡</div>
+          <div>
+            <strong>Simple par design</strong>
+            <span>Des interfaces pensées pour aller vite, pas pour impressionner</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ══════════ CONTACT ══════════ -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <div class="section-label">Contact</div>
-        <h2>Une question ? On vous répond.</h2>
-        <p>Notre équipe est disponible pour répondre à vos questions, vous faire une démonstration ou vous aider à choisir le bon plan.</p>
-        <a href="mailto:contact@lyvenia.fr" class="btn btn-primary btn-lg">contact@lyvenia.fr</a>
-      </div>
+  <section class="lh-contact">
+    <div class="lh-container">
+      <h2>Une question ? On vous répond.</h2>
+      <p>Démo, devis, ou simplement en savoir plus — notre équipe est disponible.</p>
+      <a href="mailto:contact@lyvenia.fr" class="lh-btn-primary">contact@lyvenia.fr</a>
     </div>
   </section>
 
   <!-- ══════════ FOOTER ══════════ -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="nav-logo">RODIA <span>by Lyvenia</span></span>
-        <p>Logiciel de diagnostic OBD2 professionnel<br>conçu en France pour les professionnels du transport.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#tarifs">Tarifs</a>
+  <footer class="lh-footer">
+    <div class="lh-container lh-footer-inner">
+      <span class="lh-logo">Lyvenia</span>
+      <div class="lh-footer-links">
+        <a href="/rodia.html">RODIA</a>
         <a href="mailto:contact@lyvenia.fr">Contact</a>
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="cgv.html">CGV</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/cgv.html">CGV</a>
       </div>
-      <div class="footer-copy">
-        © 2026 Lyvenia — Bastien Rodrigues de Souza Meireles<br>
-        Tous droits réservés.
-      </div>
+      <span class="lh-footer-copy">© 2026 Lyvenia — Bastien Rodrigues de Souza Meireles</span>
     </div>
   </footer>
 
