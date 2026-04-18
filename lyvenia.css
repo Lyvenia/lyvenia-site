@@ -100,6 +100,70 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.75;
 }
 
+/* ── Hero actions ────────────────────────────────────── */
+.lh-hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.lh-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: .9rem 2.2rem;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: .95rem;
+  border-radius: 10px;
+  transition: border-color .2s, color .2s;
+}
+.lh-btn-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── Stats strip ─────────────────────────────────────── */
+.lh-stats {
+  background: var(--green);
+  padding: 0;
+}
+.lh-stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.lh-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 3rem;
+  gap: .4rem;
+}
+.lh-stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--rose);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+.lh-stat-label {
+  font-size: .8rem;
+  color: rgba(232,240,232,.55);
+  max-width: 180px;
+  line-height: 1.4;
+}
+.lh-stat-sep {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,.1);
+  flex-shrink: 0;
+}
+
 /* ── Section label ───────────────────────────────────── */
 .lh-section-label {
   font-size: .72rem;
@@ -205,6 +269,52 @@ a { color: inherit; text-decoration: none; }
 .lh-product-soon .lh-product-tag  { color: #cbd5e1; }
 .lh-product-soon p { color: #cbd5e1; font-size: .9rem; line-height: 1.7; margin-bottom: 1.75rem; }
 .lh-product-soon .lh-product-cta  { color: #cbd5e1; }
+
+/* ── Why ─────────────────────────────────────────────── */
+.lh-why {
+  padding: 100px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.lh-why h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 3rem;
+  color: var(--text);
+  max-width: 480px;
+}
+.lh-why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.lh-why-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: border-color .2s, transform .2s;
+}
+.lh-why-card:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+.lh-why-icon {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.lh-why-card h3 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+.lh-why-card p {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
 
 /* ── About ───────────────────────────────────────────── */
 .lh-about {
@@ -321,6 +431,9 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
+  .lh-stat-sep { display: none; }
+  .lh-stat { padding: 1.5rem 2rem; }
+  .lh-stats-inner { gap: 0; }
   .lh-about-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
