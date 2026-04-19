@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon compte — Lyvenia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:      #0d1f0d;
+      --green-mid:  #2d5a27;
+      --rose:       #e8b4a4;
+      --text:       #0f172a;
+      --text-muted: #64748b;
+      --border:     #e2e8f0;
+      --bg:         #ffffff;
+      --bg-alt:     #f8fafc;
+      --danger:     #dc2626;
+      --success:    #16a34a;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-alt); color: var(--text); min-height: 100vh; }
+
+    /* ── NAV ── */
+    .nav { background: var(--green); padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { color: var(--rose); font-weight: 800; font-size: 1.1rem; letter-spacing: .04em; text-decoration: none; }
+    .nav-logo span { color: rgba(232,180,164,.5); font-weight: 400; font-size: .8rem; margin-left: 6px; }
+    .nav-logout { background: none; border: 1px solid rgba(232,180,164,.3); color: rgba(232,180,164,.7); font-size: .8rem; padding: .35rem .9rem; border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .2s; }
+    .nav-logout:hover { border-color: var(--rose); color: var(--rose); }
+
+    /* ── LOGIN ── */
+    .login-wrap { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 2rem; }
+    .login-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 420px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .login-title { font-size: 1.4rem; font-weight: 800; color: var(--green); margin-bottom: .4rem; letter-spacing: -.02em; }
+    .login-sub { font-size: .875rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-size: .8rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+    .form-group input { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: .7rem 1rem; font-size: .9rem; font-family: inherit; outline: none; transition: border-color .2s; background: var(--bg); color: var(--text); }
+    .form-group input:focus { border-color: var(--green-mid); }
+    .btn-submit { width: 100%; background: var(--green); color: #e8f0e8; border: none; border-radius: 8px; padding: .85rem; font-size: .95rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity .2s; margin-top: .5rem; }
+    .btn-submit:hover { opacity: .85; }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .login-forgot { text-align: center; margin-top: 1.25rem; }
+    .login-forgot a { font-size: .82rem; color: var(--text-muted); text-decoration: none; }
+    .login-forgot a:hover { color: var(--green); }
+    .alert { border-radius: 8px; padding: .75rem 1rem; font-size: .85rem; margin-bottom: 1rem; display: none; }
+    .alert-error { background: #fef2f2; border: 1px solid #fecaca; color: var(--danger); }
+    .alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: var(--success); }
+
+    /* ── DASHBOARD ── */
+    .dashboard { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem; display: none; }
+    .dash-welcome { margin-bottom: 2rem; }
+    .dash-welcome h1 { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; }
+    .dash-welcome p { color: var(--text-muted); font-size: .9rem; margin-top: .3rem; }
+    .dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    @media (max-width: 600px) { .dash-grid { grid-template-columns: 1fr; } }
+    .dash-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+    .dash-card-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: .75rem; }
+    .dash-card-value { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .dash-card-sub { font-size: .8rem; color: var(--text-muted); margin-top: .25rem; }
+    .badge-active { display: inline-block; background: #dcfce7; color: #15803d; font-size: .72rem; font-weight: 700; padding: .2rem .6rem; border-radius: 20px; text-transform: uppercase; letter-spacing: .04em; }
+    .badge-inactive { display: inline-block; background: #fee2e2; color: #dc2626; font-size: .72rem; font-weight: 700; padding: .2rem .6rem; border-radius: 20px; text-transform: uppercase; letter-spacing: .04em; }
+
+    /* Download card */
+    .dash-dl-card { background: var(--green); border-radius: 14px; padding: 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+    .dash-dl-text h3 { font-size: 1rem; font-weight: 700; color: #e8f0e8; margin-bottom: .3rem; }
+    .dash-dl-text p { font-size: .82rem; color: rgba(232,240,232,.55); }
+    .btn-dl { display: inline-flex; align-items: center; gap: .5rem; background: var(--rose); color: var(--green); font-weight: 800; font-size: .9rem; padding: .75rem 1.5rem; border-radius: 10px; text-decoration: none; white-space: nowrap; transition: opacity .2s; }
+    .btn-dl:hover { opacity: .85; }
+    @media (max-width: 500px) { .dash-dl-card { flex-direction: column; } }
+
+    /* Change password */
+    .dash-section { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+    .dash-section-title { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+    .dash-section-title span { font-size: .8rem; color: var(--text-muted); font-weight: 400; }
+    .dash-section-body { display: none; }
+    .dash-section-body.open { display: block; }
+    .pw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 500px) { .pw-grid { grid-template-columns: 1fr; } }
+    .btn-save { background: var(--green); color: #e8f0e8; border: none; border-radius: 8px; padding: .7rem 1.5rem; font-size: .875rem; font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 1rem; transition: opacity .2s; }
+    .btn-save:hover { opacity: .85; }
+    .btn-save:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Forgot password */
+    .forgot-back { font-size: .82rem; color: var(--text-muted); cursor: pointer; margin-bottom: 1.5rem; display: inline-block; }
+    .forgot-back:hover { color: var(--green); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">Lyvenia <span>espace client</span></a>
+    <button class="nav-logout" id="btnLogout" style="display:none" onclick="logout()">Déconnexion</button>
+  </nav>
+
+  <!-- ══ LOGIN ══ -->
+  <div class="login-wrap" id="viewLogin">
+    <div class="login-card">
+      <h1 class="login-title">Connexion</h1>
+      <p class="login-sub">Accédez à votre espace client Lyvenia</p>
+
+      <div class="alert alert-error" id="loginError"></div>
+
+      <div id="viewLoginForm">
+        <div class="form-group">
+          <label for="loginEmail">Adresse email</label>
+          <input type="email" id="loginEmail" placeholder="vous@exemple.fr" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button class="btn-submit" id="btnLogin" onclick="doLogin()">Se connecter</button>
+        <div class="login-forgot">
+          <a href="#" onclick="showForgot(); return false;">Mot de passe oublié ?</a>
+        </div>
+      </div>
+
+      <!-- Mot de passe oublié -->
+      <div id="viewForgot" style="display:none">
+        <span class="forgot-back" onclick="showLoginForm()">← Retour à la connexion</span>
+        <div class="alert alert-success" id="forgotSuccess"></div>
+        <div class="alert alert-error" id="forgotError"></div>
+        <div class="form-group">
+          <label for="forgotEmail">Votre adresse email</label>
+          <input type="email" id="forgotEmail" placeholder="vous@exemple.fr">
+        </div>
+        <button class="btn-submit" onclick="doForgot()">Envoyer le lien de réinitialisation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD ══ -->
+  <div class="dashboard" id="viewDashboard">
+
+    <div class="dash-welcome">
+      <h1>Mon espace client</h1>
+      <p id="dashEmail">—</p>
+    </div>
+
+    <!-- Infos abonnement -->
+    <div class="dash-grid">
+      <div class="dash-card">
+        <div class="dash-card-label">Mon plan</div>
+        <div class="dash-card-value" id="dashTier">—</div>
+        <div class="dash-card-sub" id="dashVehicles">—</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Statut</div>
+        <div id="dashStatus">—</div>
+        <div class="dash-card-sub" id="dashExpiry"></div>
+      </div>
+    </div>
+
+    <!-- Téléchargement -->
+    <div class="dash-dl-card">
+      <div class="dash-dl-text">
+        <h3>RODIA v1.0.0</h3>
+        <p>Windows 10 / 11 · Installateur (~39 Mo)</p>
+      </div>
+      <a href="https://github.com/Lyvenia/rodia-releases/releases/latest/download/RODIA-Setup-v1.0.0.exe"
+         class="btn-dl">⬇ Télécharger</a>
+    </div>
+
+    <!-- Changer mot de passe -->
+    <div class="dash-section">
+      <div class="dash-section-title" onclick="togglePw()">
+        Changer mon mot de passe
+        <span id="pwToggleLabel">Afficher</span>
+      </div>
+      <div class="dash-section-body" id="pwBody">
+        <div class="alert alert-error" id="pwError"></div>
+        <div class="alert alert-success" id="pwSuccess"></div>
+        <div class="pw-grid">
+          <div class="form-group">
+            <label>Mot de passe actuel</label>
+            <input type="password" id="pwOld" placeholder="••••••••">
+          </div>
+          <div class="form-group">
+            <label>Nouveau mot de passe</label>
+            <input type="password" id="pwNew" placeholder="8 caractères minimum">
+          </div>
+        </div>
+        <button class="btn-save" onclick="doChangePassword()">Enregistrer</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const API = 'https://api.lyvenia.fr';
+
+    // ── Init ──────────────────────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', async () => {
+      const token = localStorage.getItem('lyvenia_token');
+      if (token) {
+        try {
+          const res = await fetch(`${API}/auth/refresh`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          if (res.ok) {
+            const data = await res.json();
+            localStorage.setItem('lyvenia_token', data.token);
+            showDashboard(data.user);
+            return;
+          }
+        } catch {}
+        localStorage.removeItem('lyvenia_token');
+      }
+      showView('login');
+    });
+
+    // ── Vues ──────────────────────────────────────────────────────────────
+    function showView(v) {
+      document.getElementById('viewLogin').style.display    = v === 'login'     ? '' : 'none';
+      document.getElementById('viewDashboard').style.display = v === 'dashboard' ? '' : 'none';
+      document.getElementById('btnLogout').style.display    = v === 'dashboard' ? '' : 'none';
+    }
+
+    function showDashboard(user) {
+      const tierLabels = { taxi:'Taxi', pme:'PME', flotte:'Flotte', pro:'Pro', enterprise:'Enterprise' };
+      document.getElementById('dashEmail').textContent    = user.email;
+      document.getElementById('dashTier').textContent     = user.tier_label || tierLabels[user.tier] || user.tier;
+      document.getElementById('dashVehicles').textContent = `Jusqu'à ${user.vehicle_limit} véhicules`;
+      const statusEl = document.getElementById('dashStatus');
+      if (user.subscription_status === 'active') {
+        statusEl.innerHTML = '<span class="badge-active">Actif</span>';
+      } else {
+        statusEl.innerHTML = '<span class="badge-inactive">' + user.subscription_status + '</span>';
+      }
+      if (user.subscription_expiry) {
+        const d = new Date(user.subscription_expiry);
+        document.getElementById('dashExpiry').textContent = 'Expire le ' + d.toLocaleDateString('fr-FR');
+      }
+      showView('dashboard');
+    }
+
+    function showForgot() {
+      document.getElementById('viewLoginForm').style.display = 'none';
+      document.getElementById('viewForgot').style.display    = '';
+      document.getElementById('loginError').style.display    = 'none';
+    }
+
+    function showLoginForm() {
+      document.getElementById('viewLoginForm').style.display = '';
+      document.getElementById('viewForgot').style.display    = 'none';
+      document.getElementById('forgotSuccess').style.display = 'none';
+      document.getElementById('forgotError').style.display   = 'none';
+    }
+
+    // ── Login ─────────────────────────────────────────────────────────────
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && document.getElementById('viewLogin').style.display !== 'none') doLogin();
+    });
+
+    async function doLogin() {
+      const email    = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const errEl    = document.getElementById('loginError');
+      const btn      = document.getElementById('btnLogin');
+
+      errEl.style.display = 'none';
+      if (!email || !password) { showError(errEl, 'Veuillez remplir tous les champs.'); return; }
+
+      btn.disabled = true; btn.textContent = 'Connexion…';
+      try {
+        const res  = await fetch(`${API}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) { showError(errEl, data.error || 'Erreur de connexion.'); return; }
+        localStorage.setItem('lyvenia_token', data.token);
+        showDashboard(data.user);
+      } catch {
+        showError(errEl, 'Impossible de joindre le serveur. Réessayez.');
+      } finally {
+        btn.disabled = false; btn.textContent = 'Se connecter';
+      }
+    }
+
+    // ── Mot de passe oublié ───────────────────────────────────────────────
+    async function doForgot() {
+      const email   = document.getElementById('forgotEmail').value.trim();
+      const succEl  = document.getElementById('forgotSuccess');
+      const errEl   = document.getElementById('forgotError');
+      succEl.style.display = 'none'; errEl.style.display = 'none';
+      if (!email) { showError(errEl, 'Veuillez saisir votre email.'); return; }
+      try {
+        await fetch(`${API}/auth/forgot-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        succEl.textContent = 'Si cet email est enregistré, un lien de réinitialisation vous a été envoyé.';
+        succEl.style.display = '';
+      } catch {
+        showError(errEl, 'Impossible de joindre le serveur. Réessayez.');
+      }
+    }
+
+    // ── Change password ───────────────────────────────────────────────────
+    function togglePw() {
+      const body  = document.getElementById('pwBody');
+      const label = document.getElementById('pwToggleLabel');
+      const open  = body.classList.toggle('open');
+      label.textContent = open ? 'Masquer' : 'Afficher';
+    }
+
+    async function doChangePassword() {
+      const oldPw  = document.getElementById('pwOld').value;
+      const newPw  = document.getElementById('pwNew').value;
+      const errEl  = document.getElementById('pwError');
+      const succEl = document.getElementById('pwSuccess');
+      errEl.style.display = 'none'; succEl.style.display = 'none';
+
+      if (!oldPw || !newPw) { showError(errEl, 'Veuillez remplir les deux champs.'); return; }
+      if (newPw.length < 8) { showError(errEl, 'Le nouveau mot de passe doit contenir au moins 8 caractères.'); return; }
+
+      const token = localStorage.getItem('lyvenia_token');
+      try {
+        const res  = await fetch(`${API}/auth/change-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ old_password: oldPw, new_password: newPw })
+        });
+        const data = await res.json();
+        if (!res.ok) { showError(errEl, data.error || 'Erreur.'); return; }
+        succEl.textContent = 'Mot de passe modifié avec succès.';
+        succEl.style.display = '';
+        document.getElementById('pwOld').value = '';
+        document.getElementById('pwNew').value = '';
+      } catch {
+        showError(errEl, 'Impossible de joindre le serveur. Réessayez.');
+      }
+    }
+
+    // ── Logout ────────────────────────────────────────────────────────────
+    function logout() {
+      localStorage.removeItem('lyvenia_token');
+      document.getElementById('loginEmail').value    = '';
+      document.getElementById('loginPassword').value = '';
+      showLoginForm();
+      showView('login');
+    }
+
+    // ── Helper ────────────────────────────────────────────────────────────
+    function showError(el, msg) { el.textContent = msg; el.style.display = ''; }
+  </script>
+
+</body>
+</html>
