@@ -1,217 +1,920 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lyvenia — Logiciels métier pour les professionnels du terrain</title>
-  <meta name="description" content="Lyvenia conçoit des logiciels métier pour les professionnels du terrain. Découvrez RODIA, notre solution de diagnostic OBD2 intelligente pour flottes professionnelles.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="canonical" href="https://lyvenia.fr/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lyvenia.fr/">
-  <meta property="og:title" content="Lyvenia — Logiciels métier pour les professionnels du terrain">
-  <meta property="og:description" content="Lyvenia conçoit des logiciels métier pour les professionnels du terrain. Découvrez RODIA, notre solution de diagnostic OBD2 intelligente pour flottes professionnelles.">
-  <meta property="og:locale" content="fr_FR">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Lyvenia — Logiciels métier pour les professionnels du terrain">
-  <meta name="twitter:description" content="Lyvenia conçoit des logiciels métier pour les professionnels du terrain. Découvrez RODIA, notre solution de diagnostic OBD2 intelligente pour flottes professionnelles.">
-
-  <!-- JSON-LD : Organisation -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Lyvenia",
-    "url": "https://lyvenia.fr",
-    "description": "Éditeur français de logiciels métier pour les professionnels du terrain.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "contact@lyvenia.fr",
-      "contactType": "customer support",
-      "availableLanguage": "French"
-    }
+<meta charset="UTF-8">
+<title>Lyvenia — RODIA, diagnostic auto connecté</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root, [data-theme="light"] {
+    --bg: oklch(0.97 0.012 85);
+    --bg-soft: oklch(0.955 0.015 85);
+    --surface: oklch(0.99 0.008 85);
+    --ink: oklch(0.24 0.04 150);
+    --ink-2: oklch(0.42 0.03 150);
+    --ink-3: oklch(0.58 0.02 150);
+    --line: oklch(0.88 0.015 110);
+    --line-soft: oklch(0.92 0.012 110);
+    --accent: oklch(0.74 0.12 30);
+    --accent-ink: oklch(0.55 0.14 30);
+    --accent-soft: oklch(0.93 0.05 30);
+    --warn: oklch(0.68 0.14 55);
+    --ok: oklch(0.55 0.12 150);
+    --danger: oklch(0.6 0.18 25);
+    --featured-bg: oklch(0.2 0.04 150);
+    --featured-ink: oklch(0.97 0.012 85);
+    --featured-ink-2: oklch(0.82 0.02 110);
+    --featured-chip-bg: oklch(0.26 0.045 150);
+    --featured-chip-line: oklch(0.36 0.04 150);
+    --featured-chip-ink: oklch(0.88 0.02 85);
+    --code-bg: oklch(0.18 0.04 150);
+    --code-ink: oklch(0.88 0.02 85);
+    --code-cmt: oklch(0.55 0.03 150);
+    --btn-primary-bg: var(--ink);
+    --btn-primary-ink: oklch(0.97 0.012 85);
+    --btn-primary-hover: oklch(0.32 0.05 150);
+    --shadow-mock: 0 1px 0 rgba(40,60,45,.03), 0 20px 40px -20px rgba(30,50,40,.15);
+    --shadow-diff: 0 20px 40px -24px rgba(30,50,40,.18);
+    --cta-glow-1: var(--accent-soft);
+    --cta-glow-2: oklch(0.93 0.04 140);
+    --grid-tint: oklch(0.88 0.02 140 / 0.5);
+    --r: 10px;
   }
-  </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="lyvenia.css">
+  [data-theme="dark"] {
+    --bg: oklch(0.18 0.035 150);
+    --bg-soft: oklch(0.22 0.035 150);
+    --surface: oklch(0.24 0.035 150);
+    --ink: oklch(0.96 0.018 85);
+    --ink-2: oklch(0.78 0.02 110);
+    --ink-3: oklch(0.58 0.025 140);
+    --line: oklch(0.32 0.03 150);
+    --line-soft: oklch(0.28 0.03 150);
+    --accent: oklch(0.78 0.11 30);
+    --accent-ink: oklch(0.82 0.12 30);
+    --accent-soft: oklch(0.34 0.08 30);
+    --warn: oklch(0.75 0.14 55);
+    --ok: oklch(0.72 0.13 150);
+    --danger: oklch(0.7 0.18 25);
+    --featured-bg: oklch(0.28 0.04 150);
+    --featured-ink: oklch(0.96 0.018 85);
+    --featured-ink-2: oklch(0.8 0.02 110);
+    --featured-chip-bg: oklch(0.33 0.04 150);
+    --featured-chip-line: oklch(0.42 0.04 150);
+    --featured-chip-ink: oklch(0.88 0.02 85);
+    --code-bg: oklch(0.13 0.03 150);
+    --code-ink: oklch(0.88 0.02 85);
+    --code-cmt: oklch(0.5 0.03 150);
+    --btn-primary-bg: var(--accent);
+    --btn-primary-ink: oklch(0.2 0.04 30);
+    --btn-primary-hover: oklch(0.82 0.12 30);
+    --shadow-mock: 0 1px 0 rgba(0,0,0,.3), 0 20px 40px -20px rgba(0,0,0,.6);
+    --shadow-diff: 0 20px 40px -24px rgba(0,0,0,.6);
+    --cta-glow-1: oklch(0.34 0.08 30);
+    --cta-glow-2: oklch(0.24 0.05 150);
+    --grid-tint: oklch(0.3 0.035 150 / 0.4);
+  }
+
+  html { transition: background .3s ease; }
+  body { transition: background .3s ease, color .3s ease; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11", "tnum";
+    background-image:
+      linear-gradient(var(--grid-tint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-tint) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Inter Tight', sans-serif; font-weight: 600; letter-spacing: -0.02em; margin: 0; color: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-3); }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklch, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { font-family: 'Inter Tight'; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .brand .mark { width: 20px; height: 20px; border-radius: 5px; background: var(--featured-bg); position: relative; }
+  .brand .mark::after { content: ""; position: absolute; inset: 5px; border-radius: 2px; background: var(--accent); }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { display: flex; gap: 10px; align-items: center; }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: all .15s ease; font-family: inherit; }
+  .btn-ghost { color: var(--ink-2); }
+  .btn-ghost:hover { color: var(--ink); background: var(--bg-soft); }
+  .btn-outline { border-color: var(--line); background: var(--surface); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-ink); }
+  .btn-primary:hover { background: var(--btn-primary-hover); }
+  .btn svg { width: 14px; height: 14px; }
+
+  .theme-toggle { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; cursor: pointer; color: var(--ink-2); transition: all .15s; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+  .theme-toggle svg { width: 15px; height: 15px; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+
+  /* HERO */
+  .hero { padding: 80px 0 40px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 5px 12px 5px 6px; border: 1px solid var(--line); border-radius: 99px; font-size: 12px; color: var(--ink-2); background: var(--surface); }
+  .hero-eyebrow .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; }
+  .hero-eyebrow .dot::after { content:""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.02; margin: 22px 0 24px; letter-spacing: -0.035em; }
+  .hero h1 em { font-style: normal; color: var(--accent-ink); font-weight: 500; }
+  .hero p.lead { font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 540px; margin: 0 0 32px; }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero-meta { margin-top: 36px; display: flex; gap: 28px; flex-wrap: wrap; color: var(--ink-3); font-size: 13px; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-meta .check { width: 14px; height: 14px; color: var(--accent); }
+
+  /* RODIA APP MOCK — fidèle au vrai produit */
+  .app-mock { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-mock); overflow: hidden; font-size: 12px; }
+  .app-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line-soft); background: var(--bg-soft); }
+  .app-bar .brand-mini { display: flex; align-items: center; gap: 6px; font-family: 'Inter Tight'; font-weight: 600; font-size: 13px; }
+  .app-bar .brand-mini .m { width: 14px; height: 14px; border-radius: 4px; background: var(--featured-bg); position: relative; }
+  .app-bar .brand-mini .m::after { content:""; position: absolute; inset: 3px; background: var(--accent); border-radius: 2px; }
+  .app-bar .search { flex: 1; padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-3); background: var(--surface); display: flex; justify-content: space-between; align-items: center; }
+  .app-bar .search kbd { font-family: inherit; font-size: 9.5px; padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; }
+  .app-bar .icons { display: flex; gap: 6px; color: var(--ink-3); }
+  .app-bar .icons svg { width: 14px; height: 14px; }
+
+  .app-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 440px; }
+  .app-hello { font-family: 'Inter Tight'; font-weight: 600; font-size: 16px; letter-spacing: -0.02em; }
+  .app-hello span { color: var(--ink-3); font-weight: 500; font-size: 13px; }
+
+  .alert-banner { border: 1px solid color-mix(in oklch, var(--danger) 40%, var(--line)); background: color-mix(in oklch, var(--danger) 8%, var(--bg)); border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: center; }
+  .alert-banner .ic { width: 26px; height: 26px; border-radius: 7px; background: var(--danger); color: white; display: grid; place-items: center; flex-shrink: 0; }
+  .alert-banner .ic svg { width: 14px; height: 14px; }
+  .alert-banner .body { flex: 1; }
+  .alert-banner .t { font-weight: 500; font-size: 12px; color: var(--ink); }
+  .alert-banner .d { font-size: 10.5px; color: var(--ink-2); margin-top: 1px; }
+  .alert-banner .cta { font-size: 11px; color: var(--accent-ink); font-weight: 500; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .kpi { border: 1px solid var(--line-soft); border-radius: 8px; padding: 10px; background: var(--bg); }
+  .kpi .k { font-size: 9.5px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+  .kpi .v { font-family: 'Inter Tight'; font-weight: 600; font-size: 20px; margin-top: 3px; letter-spacing: -0.02em; }
+  .kpi .spark { height: 14px; margin-top: 4px; }
+  .kpi .spark svg { width: 100%; height: 100%; display: block; }
+
+  .veh-list { border: 1px solid var(--line-soft); border-radius: 10px; background: var(--bg); overflow: hidden; }
+  .veh-row { display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; padding: 9px 12px; align-items: center; border-top: 1px solid var(--line-soft); font-size: 12px; }
+  .veh-row:first-child { border-top: 0; }
+  .veh-score { width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; }
+  .veh-score.urg { background: color-mix(in oklch, var(--danger) 15%, var(--bg)); color: var(--danger); }
+  .veh-score.warn { background: color-mix(in oklch, var(--warn) 18%, var(--bg)); color: var(--warn); }
+  .veh-score.ok { background: color-mix(in oklch, var(--ok) 15%, var(--bg)); color: var(--ok); }
+  .veh-row .name { font-weight: 500; color: var(--ink); }
+  .veh-row .meta { color: var(--ink-3); font-size: 10.5px; }
+  .veh-row .km { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-2); }
+  .veh-row .pill-mini { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--ink-2); }
+
+  /* TRUST */
+  .trust { padding: 40px 0 24px; border-top: 1px solid var(--line-soft); margin-top: 64px; }
+  .trust-label { text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); margin-bottom: 20px; }
+  .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+  .trust-logos .slot { width: 120px; height: 32px; border-radius: 6px; border: 1px dashed var(--line); background: repeating-linear-gradient(135deg, transparent 0 8px, color-mix(in oklch, var(--ink-3) 6%, transparent) 8px 9px); }
+
+  /* SECTIONS */
+  section.block { padding: 96px 0; border-top: 1px solid var(--line-soft); }
+  .section-head { display: flex; gap: 48px; justify-content: space-between; margin-bottom: 56px; align-items: flex-end; }
+  .section-head .lead-col { max-width: 620px; }
+  .section-head h2 { font-size: clamp(32px, 3.6vw, 44px); letter-spacing: -0.03em; line-height: 1.05; margin: 12px 0 0; }
+  .section-head p { color: var(--ink-2); font-size: 16px; margin: 14px 0 0; max-width: 560px; }
+
+  /* PRODUITS */
+  .products { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .product-card { grid-column: span 6; border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--surface); display: flex; flex-direction: column; gap: 20px; }
+  .product-card.featured { background: var(--featured-bg); color: var(--featured-ink); border-color: var(--featured-bg); position: relative; overflow: hidden; }
+  .product-card.featured::before { content: ""; position: absolute; top: -80px; right: -80px; width: 260px; height: 260px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.25; }
+  .product-card.soon { background: var(--bg-soft); border-style: dashed; }
+  .product-card .product-head { display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1; }
+  .product-name { font-family: 'Inter Tight'; font-weight: 700; font-size: 28px; letter-spacing: -0.03em; }
+  .product-card .tag-mini { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; padding: 4px 8px; border-radius: 99px; border: 1px solid currentColor; opacity: .7; }
+  .product-card p { margin: 0; font-size: 15px; line-height: 1.5; position: relative; z-index: 1; }
+  .product-card.featured p { color: var(--featured-ink-2); }
+  .product-card .feats { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+  .product-card .feats span { font-size: 12px; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--ink-2); }
+  .product-card.featured .feats span { border-color: var(--featured-chip-line); background: var(--featured-chip-bg); color: var(--featured-chip-ink); }
+  .product-card a.pc-link { font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; margin-top: auto; position: relative; z-index: 1; }
+  .product-card.featured a.pc-link { color: var(--accent-soft); }
+  .product-card a.pc-link:hover { gap: 10px; }
+  .soon-label { font-size: 13px; color: var(--ink-3); }
+  .product-card.soon .product-name { color: var(--ink-3); }
+
+  /* WORKFLOW (5 phases) */
+  .workflow { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+  .wf-rail { position: sticky; top: 90px; align-self: start; }
+  .wf-step { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line-soft); cursor: pointer; transition: opacity .2s; }
+  .wf-step:first-child { border-top: 0; }
+  .wf-step .n { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-3); width: 28px; flex-shrink: 0; padding-top: 2px; }
+  .wf-step .t { font-family: 'Inter Tight'; font-weight: 500; font-size: 15px; }
+  .wf-step .d { color: var(--ink-3); font-size: 12.5px; margin-top: 2px; }
+  .wf-step:not(.active) { opacity: .5; }
+  .wf-step.active .n { color: var(--accent-ink); font-weight: 500; }
+
+  .wf-panel { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 32px; box-shadow: var(--shadow-mock); }
+  .wf-panel h3 { font-size: 22px; margin-bottom: 8px; }
+  .wf-panel .sub { color: var(--ink-2); font-size: 14.5px; margin-bottom: 20px; }
+  .wf-content { display: none; }
+  .wf-content.active { display: block; }
+
+  /* FEATURES */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .feat { padding: 32px; background: var(--surface); display: flex; flex-direction: column; gap: 14px; min-height: 220px; }
+  .feat .ic { width: 32px; height: 32px; border-radius: 8px; background: var(--bg-soft); border: 1px solid var(--line); display: grid; place-items: center; }
+  .feat .ic svg { width: 16px; height: 16px; }
+  .feat h4 { font-size: 17px; }
+  .feat p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+
+  /* DIAGNOSTIC DIFFERENTIEL */
+  .diff { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .diff-text h2 { font-size: clamp(30px, 3.2vw, 40px); margin-bottom: 18px; }
+  .diff-text p { color: var(--ink-2); font-size: 16px; line-height: 1.6; }
+
+  .dt-suspects { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; box-shadow: var(--shadow-diff); }
+  .dt-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); }
+  .dt-head .code { font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 3px 8px; border-radius: 5px; background: var(--accent-soft); color: var(--accent-ink); }
+  .dt-head .conf { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-3); }
+  .dt-suspect { display: grid; grid-template-columns: 22px 1fr 60px; gap: 12px; align-items: center; padding: 10px 0; }
+  .dt-suspect .lvl { width: 16px; height: 16px; border-radius: 50%; }
+  .dt-suspect .lvl.r { background: var(--danger); }
+  .dt-suspect .lvl.o { background: var(--warn); }
+  .dt-suspect .lvl.y { background: oklch(0.85 0.12 90); }
+  .dt-suspect .lvl.x { background: var(--ink-3); opacity: .4; }
+  .dt-suspect .label { font-size: 13.5px; }
+  .dt-suspect .label small { color: var(--ink-3); display: block; font-size: 11.5px; margin-top: 1px; }
+  .dt-suspect .score { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: right; color: var(--ink-2); }
+  .dt-suspect.excl .label { text-decoration: line-through; color: var(--ink-3); }
+  .dt-plan { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); }
+  .dt-plan .h { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-ink); margin-bottom: 10px; }
+  .dt-plan-row { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; padding: 6px 0; font-size: 13px; align-items: baseline; }
+  .dt-plan-row .n { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); }
+  .dt-plan-row .price { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); }
+
+  /* USE CASES */
+  .tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; width: fit-content; margin-bottom: 28px; flex-wrap: wrap; }
+  .tab { padding: 8px 14px; border-radius: 7px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; border: none; background: transparent; font-family: inherit; font-weight: 500; }
+  .tab.active { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .uc-panel { display: none; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .uc-panel.active { display: grid; }
+  .uc-panel h3 { font-size: 26px; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .uc-panel p { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
+  .uc-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+  .uc-stat { border: 1px solid var(--line); border-radius: 10px; padding: 16px; background: var(--surface); }
+  .uc-stat .v { font-family: 'Inter Tight'; font-weight: 600; font-size: 28px; letter-spacing: -0.02em; color: var(--accent-ink); }
+  .uc-stat .l { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+  .uc-scene { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--surface); display: flex; flex-direction: column; gap: 12px; }
+  .uc-scene .sh { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
+  .uc-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-top: 1px solid var(--line-soft); font-size: 13px; }
+  .uc-row:first-of-type { border-top: 0; }
+  .uc-row .left { display: flex; gap: 10px; align-items: center; }
+  .uc-row .pill { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 7px; border-radius: 4px; background: var(--bg-soft); border: 1px solid var(--line); color: var(--ink-2); }
+  .uc-row .pill.ok { background: color-mix(in oklch, var(--ok) 12%, var(--bg)); color: var(--ok); border-color: color-mix(in oklch, var(--ok) 35%, var(--line)); }
+  .uc-row .pill.warn { background: color-mix(in oklch, var(--warn) 14%, var(--bg)); color: var(--warn); border-color: color-mix(in oklch, var(--warn) 40%, var(--line)); }
+  .uc-row .pill.urg { background: color-mix(in oklch, var(--danger) 12%, var(--bg)); color: var(--danger); border-color: color-mix(in oklch, var(--danger) 35%, var(--line)); }
+  .uc-row .val { color: var(--ink); font-weight: 500; }
+
+  /* CTA */
+  .cta { border: 1px solid var(--line); border-radius: 18px; padding: 56px; background: var(--surface); position: relative; overflow: hidden; }
+  .cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 20%, var(--cta-glow-1) 0%, transparent 40%), radial-gradient(circle at 10% 90%, var(--cta-glow-2) 0%, transparent 50%); }
+  .cta-inner { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
+  .cta h2 { font-size: clamp(32px, 3.4vw, 44px); letter-spacing: -0.03em; line-height: 1.05; }
+  .cta p { color: var(--ink-2); font-size: 16px; margin: 14px 0 28px; max-width: 460px; }
+  .cta-form { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+  .soon-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; border-radius: 99px; background: var(--accent-soft); color: var(--accent-ink); font-size: 11.5px; font-weight: 500; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .04em; }
+  .soon-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); position: relative; }
+  .soon-badge .pulse::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; background: var(--accent); opacity: .4; animation: pulse 2s ease-out infinite; }
+  @keyframes pulse { 0% { transform: scale(.6); opacity: .6; } 100% { transform: scale(2); opacity: 0; } }
+  .cta-form label { display: block; font-size: 12px; color: var(--ink-3); margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .05em; }
+  .cta-form input, .cta-form select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-family: inherit; font-size: 14px; margin-bottom: 14px; background: var(--surface); color: var(--ink); outline: none; }
+  .cta-form input:focus, .cta-form select:focus { border-color: var(--ink); }
+  .cta-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cta-form .btn { width: 100%; justify-content: center; padding: 11px; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line-soft); padding: 60px 0 40px; margin-top: 80px; }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .foot-grid h5 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; margin-bottom: 14px; font-weight: 500; }
+  .foot-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .foot-grid ul a { font-size: 14px; color: var(--ink-2); }
+  .foot-grid ul a:hover { color: var(--ink); }
+  .foot-grid .brand-col p { color: var(--ink-2); font-size: 13.5px; max-width: 300px; margin: 12px 0 0; }
+  .foot-bottom { border-top: 1px solid var(--line-soft); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
+
+  @media (max-width: 960px) {
+    .hero-grid, .diff, .cta-inner, .uc-panel.active { grid-template-columns: 1fr; gap: 40px; }
+    .features-grid, .kpis { grid-template-columns: 1fr 1fr; }
+    .product-card { grid-column: span 12; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    nav.top .nav-links { display: none; }
+    .workflow { grid-template-columns: 1fr; }
+    .wf-rail { position: static; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ══════════ NAV ══════════ -->
-  <nav class="lh-nav">
-    <div class="lh-container lh-nav-inner">
-      <span class="lh-logo">Lyvenia</span>
-      <div style="display:flex;gap:.75rem;align-items:center;">
-        <a href="/portail.html" class="lh-btn-nav">Mon compte</a>
-        <a href="mailto:contact@lyvenia.fr" class="lh-btn-nav">Contact</a>
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#" class="brand"><span class="mark"></span>Lyvenia</a>
+    <div class="nav-links">
+      <a href="#produits">Produits</a>
+      <a href="#rodia">RODIA</a>
+      <a href="#workflow">Comment ça marche</a>
+      <a href="#usecases">Cas d'usage</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Thème">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary">Être informé du lancement
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow"><span class="dot"></span>RODIA · Bientôt disponible</span>
+        <h1>Diagnostic auto connecté, <em>flotte sous contrôle.</em></h1>
+        <p class="lead">Lyvenia conçoit RODIA, le logiciel qui transforme une lecture OBD en diagnostic différentiel argumenté. Codes DTC, données temps réel, anamnèse, historique : tout est croisé par l'IA pour identifier la cause racine — pas une liste de suspects génériques.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Être informé du lancement
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#workflow" class="btn btn-outline">Voir le workflow</a>
+        </div>
+        <div class="hero-meta">
+          <span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Compatible OBD‑II</span>
+          <span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> VIN décodé NHTSA + IA</span>
+          <span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> App Windows native</span>
+        </div>
+      </div>
+
+      <!-- App mock fidèle -->
+      <div class="app-mock" aria-hidden="true">
+        <div class="app-bar">
+          <div class="brand-mini"><span class="m"></span>RODIA</div>
+          <div class="search"><span>Rechercher véhicule, code DTC…</span><kbd>Ctrl K</kbd></div>
+          <div class="icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+        </div>
+        <div class="app-body">
+          <div class="app-hello">Bonjour Camille <span>— 3 alertes du jour, 1 critique</span></div>
+
+          <div class="alert-banner">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="body">
+              <div class="t">Kangoo #FR‑214 · P0201 récidive après réparation</div>
+              <div class="d">Injecteur cyl.2 nettoyé il y a 3 mois — diagnostic différentiel suggéré</div>
+            </div>
+            <div class="cta">Ouvrir →</div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="k">Flotte active</div>
+              <div class="v">127</div>
+              <div class="spark"><svg viewBox="0 0 60 14" preserveAspectRatio="none"><polyline points="0,10 10,8 20,9 30,6 40,7 50,4 60,5" fill="none" stroke="var(--accent)" stroke-width="1.4"/></svg></div>
+            </div>
+            <div class="kpi">
+              <div class="k">Diagnostics / mois</div>
+              <div class="v">84</div>
+              <div class="spark"><svg viewBox="0 0 60 14" preserveAspectRatio="none"><polyline points="0,12 10,9 20,11 30,7 40,8 50,5 60,3" fill="none" stroke="var(--accent)" stroke-width="1.4"/></svg></div>
+            </div>
+            <div class="kpi">
+              <div class="k">Urgences</div>
+              <div class="v" style="color:var(--danger)">3</div>
+              <div class="spark"><svg viewBox="0 0 60 14" preserveAspectRatio="none"><polyline points="0,8 10,9 20,7 30,8 40,6 50,4 60,5" fill="none" stroke="var(--danger)" stroke-width="1.4"/></svg></div>
+            </div>
+            <div class="kpi">
+              <div class="k">Score moyen</div>
+              <div class="v">82</div>
+              <div class="spark"><svg viewBox="0 0 60 14" preserveAspectRatio="none"><polyline points="0,10 10,7 20,8 30,5 40,6 50,4 60,3" fill="none" stroke="var(--ok)" stroke-width="1.4"/></svg></div>
+            </div>
+          </div>
+
+          <div class="veh-list">
+            <div class="veh-row">
+              <div class="veh-score urg">42</div>
+              <div><div class="name">Renault Kangoo · #FR‑214</div><div class="meta">P0201 · récidive · 87 410 km</div></div>
+              <div class="km">87 410</div>
+              <div class="pill-mini">URGENT</div>
+            </div>
+            <div class="veh-row">
+              <div class="veh-score warn">68</div>
+              <div><div class="name">Peugeot Partner · #FR‑087</div><div class="meta">P0420 catalyseur · à planifier 2 sem.</div></div>
+              <div class="km">142 880</div>
+              <div class="pill-mini">SURV.</div>
+            </div>
+            <div class="veh-row">
+              <div class="veh-score ok">94</div>
+              <div><div class="name">Citroën Jumpy · #FR‑055</div><div class="meta">Révision 60k effectuée · conforme</div></div>
+              <div class="km">61 050</div>
+              <div class="pill-mini">OK</div>
+            </div>
+            <div class="veh-row">
+              <div class="veh-score ok">88</div>
+              <div><div class="name">Dacia Duster · #FR‑177</div><div class="meta">Bilan pré‑CT validé</div></div>
+              <div class="km">54 200</div>
+              <div class="pill-mini">OK</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
 
-  <!-- ══════════ HERO ══════════ -->
-  <section class="lh-hero">
-    <div class="lh-container">
-      <div class="lh-badge">Éditeur de logiciels · France</div>
-      <h1>Des logiciels métier<br>pour les professionnels<br>du terrain</h1>
-      <p class="lh-hero-sub">Lyvenia conçoit des outils simples, puissants et fiables pour les travailleurs du quotidien — ceux qui n'ont pas le temps de se battre avec leur technologie.</p>
-      <div class="lh-hero-actions">
-        <a href="#logiciels" class="lh-btn-primary">Voir nos logiciels</a>
-        <a href="mailto:contact@lyvenia.fr" class="lh-btn-secondary">Nous contacter</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ STATS ══════════ -->
-  <div class="lh-stats">
-    <div class="lh-container lh-stats-inner">
-      <div class="lh-stat">
-        <span class="lh-stat-number">100%</span>
-        <span class="lh-stat-label">Français — conçu, hébergé, supporté en France</span>
-      </div>
-      <div class="lh-stat-sep"></div>
-      <div class="lh-stat">
-        <span class="lh-stat-number">IA</span>
-        <span class="lh-stat-label">Embarquée — analyse intelligente dans chaque outil</span>
-      </div>
-      <div class="lh-stat-sep"></div>
-      <div class="lh-stat">
-        <span class="lh-stat-number">0</span>
-        <span class="lh-stat-label">Engagement — résiliation libre, sans surprise</span>
+    <div class="trust">
+      <div class="trust-label">Lancement progressif · Premiers utilisateurs en cours d'embarquement</div>
+      <div class="trust-logos">
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- ══════════ PRODUITS ══════════ -->
-  <section class="lh-products" id="logiciels">
-    <div class="lh-container">
-      <div class="lh-section-label">Nos logiciels</div>
-      <h2>Une suite pensée pour le terrain</h2>
-
-      <div class="lh-products-grid">
-
-        <!-- RODIA -->
-        <a href="/rodia.html" class="lh-product-card lh-product-rodia">
-          <div class="lh-product-logo">RODIA</div>
-          <div class="lh-product-tag">Diagnostic automobile</div>
-          <p>Logiciel de diagnostic OBD2 intelligent pour flottes professionnelles. Analyse IA des codes DTC, gestion de flotte et rapports PDF en un clic.</p>
-          <div class="lh-product-cta">Découvrir RODIA →</div>
-          <div class="lh-product-for">Taxis · Ambulances · VSL · Garages</div>
+<!-- PRODUITS -->
+<section class="block" id="produits">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="lead-col">
+        <span class="mono">— 01 · Produits</span>
+        <h2>Une suite logicielle pour les pros du véhicule.</h2>
+      </div>
+      <p>Lyvenia construit des outils SaaS spécialisés pour la mobilité professionnelle. RODIA ouvre la voie ; d'autres produits suivront.</p>
+    </div>
+    <div class="products">
+      <div class="product-card featured">
+        <div class="product-head">
+          <div class="product-name">RODIA</div>
+          <span class="tag-mini">v1.1 · Disponible</span>
+        </div>
+        <p>Logiciel de diagnostic auto connecté + gestion de flotte. Lecture OBD‑II, surveillance temps réel, diagnostic différentiel par IA, bilan de santé véhicule, plan de maintenance adapté.</p>
+        <div class="feats">
+          <span>Diagnostic différentiel IA</span><span>Bilan de santé</span><span>Surveillance live</span><span>Score fiabilité</span><span>PDF expert</span>
+        </div>
+        <a href="#rodia" class="pc-link">Explorer RODIA
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-
-        <!-- Futur logiciel -->
-        <div class="lh-product-card lh-product-soon">
-          <div class="lh-soon-badge">Bientôt</div>
-          <div class="lh-product-logo">???</div>
-          <div class="lh-product-tag">Prochain logiciel</div>
-          <p>Un nouvel outil métier est en cours de développement. Restez informé en nous contactant.</p>
-          <div class="lh-product-cta">Prochainement disponible</div>
+      </div>
+      <div class="product-card soon">
+        <div class="product-head">
+          <div class="product-name">À venir</div>
+          <span class="tag-mini">2026</span>
         </div>
-
+        <p class="soon-label">Un second produit Lyvenia est en préparation, dans la lignée de RODIA. Annonce prévue en 2026.</p>
+        <div class="feats"><span style="opacity:.5">···</span></div>
+        <a href="#contact" class="pc-link" style="color:var(--ink-2)">Être informé
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════ POURQUOI ══════════ -->
-  <section class="lh-why">
-    <div class="lh-container">
-      <div class="lh-section-label">Pourquoi Lyvenia</div>
-      <h2>Des outils qui respectent votre temps</h2>
-      <div class="lh-why-grid">
+<!-- WORKFLOW 5 PHASES -->
+<section class="block" id="workflow">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="lead-col">
+        <span class="mono">— 02 · Workflow</span>
+        <h2>Un wizard structuré, pas une boîte noire.</h2>
+      </div>
+      <p>RODIA guide le technicien à travers 5 phases. Chaque étape produit des données qui alimentent l'analyse finale. Plus la donnée est riche, plus le diagnostic est précis.</p>
+    </div>
 
-        <div class="lh-why-card">
-          <div class="lh-why-icon">🎯</div>
-          <h3>Taillé pour votre métier</h3>
-          <p>Nos logiciels ne sont pas des outils génériques adaptés à la va-vite. Chaque fonctionnalité est pensée pour les contraintes réelles de votre secteur.</p>
+    <div class="workflow">
+      <div class="wf-rail">
+        <div class="wf-step active" data-step="lecture">
+          <div class="n">01</div>
+          <div><div class="t">Lecture OBD</div><div class="d">DTC + freeze frame + VIN</div></div>
+        </div>
+        <div class="wf-step" data-step="contexte">
+          <div class="n">02</div>
+          <div><div class="t">Contexte client</div><div class="d">Anamnèse en accordéon progressif</div></div>
+        </div>
+        <div class="wf-step" data-step="ralenti">
+          <div class="n">03</div>
+          <div><div class="t">Moteur au ralenti</div><div class="d">Stats RPM, temp, batterie, anomalies</div></div>
+        </div>
+        <div class="wf-step" data-step="roulant">
+          <div class="n">04</div>
+          <div><div class="t">Conduite</div><div class="d">Surveillance temps réel sur route</div></div>
+        </div>
+        <div class="wf-step" data-step="analyse">
+          <div class="n">05</div>
+          <div><div class="t">Analyse IA</div><div class="d">Diagnostic différentiel + plan</div></div>
+        </div>
+      </div>
+
+      <div class="wf-panel">
+        <div class="wf-content active" data-content="lecture">
+          <h3>Lecture OBD‑II et décodage VIN</h3>
+          <p class="sub">Le boîtier ELM327 lit les codes DTC, le freeze frame (RPM, charge, fuel trim au moment du défaut) et les données temps réel. Le VIN est décodé via NHTSA, complété par notre base WMI étendue, et l'IA Claude prend le relais sur les véhicules européens non reconnus.</p>
+          <pre class="mono" style="background:var(--code-bg);color:var(--code-ink);padding:14px 16px;border-radius:8px;font-size:11.5px;line-height:1.7;text-transform:none;letter-spacing:0;overflow-x:auto;margin:0;">
+<span style="color:var(--code-cmt)">// VIN décodé · multi-source</span>
+<span style="color:var(--accent-soft)">vin</span>     = <span style="color:oklch(0.82 0.08 55)">"VF1KJK0H541234567"</span>
+<span style="color:var(--accent-soft)">marque</span>  = <span style="color:oklch(0.82 0.08 55)">"Renault"</span>     <span style="color:var(--code-cmt)">// NHTSA</span>
+<span style="color:var(--accent-soft)">modele</span>  = <span style="color:oklch(0.82 0.08 55)">"Kangoo"</span>      <span style="color:var(--code-cmt)">// WMI VF1K</span>
+<span style="color:var(--accent-soft)">annee</span>   = <span style="color:oklch(0.82 0.08 55)">"2017"</span>        <span style="color:var(--code-cmt)">// position 10</span>
+<span style="color:var(--accent-soft)">dtc</span>     = [<span style="color:oklch(0.82 0.08 55)">"P0201"</span>]
+<span style="color:var(--accent-soft)">freeze_frame</span>: rpm=1240 · charge=68% · fuel_trim_st=+18.7%</pre>
         </div>
 
-        <div class="lh-why-card">
-          <div class="lh-why-icon">🧠</div>
-          <h3>Intelligence artificielle embarquée</h3>
-          <p>L'IA n'est pas un gadget chez nous. Elle analyse, explique et vous guide — pour que vous preniez de meilleures décisions, plus vite.</p>
+        <div class="wf-content" data-content="contexte">
+          <h3>Anamnèse en accordéon progressif</h3>
+          <p class="sub">Une question à la fois, révélation en cascade. Si le véhicule ne démarre pas, RODIA saute la question « quand survient le défaut ». Description acoustique, interventions récentes, fréquence — tout est captable. Les techniciens experts peuvent tout déplier en un clic.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;">
+            <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--bg);"><b>Depuis quand ?</b> <span style="color:var(--ink-3);">Apparu il y a 2 semaines</span></div>
+            <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--bg);"><b>Fréquence</b> <span style="color:var(--ink-3);">Intermittent, surtout à froid</span></div>
+            <div style="border:1px solid var(--accent);border-radius:8px;padding:10px 12px;background:color-mix(in oklch, var(--accent) 8%, var(--bg));"><b>Conditions d'apparition</b> <span style="color:var(--ink-3);">Démarrage à froid, pleine charge</span></div>
+            <div style="border:1px dashed var(--line);border-radius:8px;padding:10px 12px;background:var(--bg-soft);color:var(--ink-3);"><b>Description acoustique</b> <span>(à compléter)</span></div>
+          </div>
         </div>
 
-        <div class="lh-why-card">
-          <div class="lh-why-icon">🤝</div>
-          <h3>Support humain, en français</h3>
-          <p>Une vraie équipe, joignable, qui connaît vos outils. Pas un chatbot, pas un ticket perdu dans un système. Une réponse rapide, en français.</p>
+        <div class="wf-content" data-content="ralenti">
+          <h3>Surveillance moteur au ralenti</h3>
+          <p class="sub">RODIA collecte un flux de mesures à 0,5 Hz pendant 60 à 180 secondes. Stats min/max/moyenne sur RPM, température, vitesse, tension batterie. Détection automatique des anomalies (RPM instables, batterie qui chute, surchauffe).</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+            <div style="border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);"><div class="mono">RPM</div><div style="font-family:'Inter Tight';font-weight:600;font-size:18px;margin-top:4px;">820 <span style="color:var(--ink-3);font-size:13px;font-weight:400;">± 60</span></div></div>
+            <div style="border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);"><div class="mono">Température</div><div style="font-family:'Inter Tight';font-weight:600;font-size:18px;margin-top:4px;">87°C</div></div>
+            <div style="border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);"><div class="mono">Batterie</div><div style="font-family:'Inter Tight';font-weight:600;font-size:18px;margin-top:4px;color:var(--warn);">12.1 V</div></div>
+            <div style="border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);"><div class="mono">Anomalies</div><div style="font-family:'Inter Tight';font-weight:600;font-size:18px;margin-top:4px;">2</div></div>
+          </div>
         </div>
 
-        <div class="lh-why-card">
-          <div class="lh-why-icon">💶</div>
-          <h3>Tarifs clairs, sans piège</h3>
-          <p>Ce que vous voyez est ce que vous payez. Résiliation libre, pas d'engagement annuel forcé, pas de frais cachés en fin de période.</p>
+        <div class="wf-content" data-content="roulant">
+          <h3>Surveillance en conduite</h3>
+          <p class="sub">Le technicien part en route avec le véhicule. RODIA enregistre une session complète : montées en régime, décélérations, charges. Si le défaut se déclenche, le freeze frame est capturé et synchronisé avec les autres mesures.</p>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--bg);">
+            <div class="mono" style="margin-bottom:8px;">SESSION ROULANT · 12 MIN · 360 MESURES</div>
+            <svg viewBox="0 0 300 70" preserveAspectRatio="none" style="width:100%;height:60px;">
+              <polyline points="0,50 20,42 40,30 60,38 80,22 100,28 120,18 140,32 160,12 180,28 200,20 220,40 240,30 260,18 280,28 300,20" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+              <polyline points="0,55 20,52 40,48 60,50 80,45 100,46 120,44 140,48 160,40 180,46 200,42 220,50 240,46 260,42 280,46 300,44" fill="none" stroke="var(--ok)" stroke-width="1.2" opacity=".6"/>
+            </svg>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-3);margin-top:6px;"><span>RPM (orange)</span><span>Température (vert)</span></div>
+          </div>
         </div>
 
+        <div class="wf-content" data-content="analyse">
+          <h3>Diagnostic différentiel par Claude Opus</h3>
+          <p class="sub">L'IA applique 4 phases : inventaire des preuves, corrélations causales, classement des suspects (rouge/orange/jaune/écarté), verdict avec plan d'action chiffré. Le score de confiance signale ce qui pourrait limiter la précision.</p>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--bg);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><div class="mono">VERDICT IA</div><div style="font-family:'JetBrains Mono';font-size:11px;color:var(--accent-ink);">Confiance 87%</div></div>
+            <div style="font-size:13.5px;color:var(--ink-2);line-height:1.55;"><b style="color:var(--ink);">Cause racine probable :</b> injecteur cylindre 2 partiellement encrassé, aggravé par batterie faible (12.1V) qui amplifie les codes intermittents. Pas critique immédiat, intervention à planifier sous 500 km.</div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ══════════ ABOUT ══════════ -->
-  <section class="lh-about">
-    <div class="lh-container lh-about-inner">
+<!-- FEATURES -->
+<section class="block" id="rodia">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="lead-col">
+        <span class="mono">— 03 · RODIA en détail</span>
+        <h2>Tout ce qu'il faut pour gérer une flotte techniquement.</h2>
+      </div>
+      <p>Modules pensés ensemble : un diagnostic alimente l'historique, qui alimente le score, qui alimente la maintenance, qui alimente le prochain diagnostic.</p>
+    </div>
 
+    <div class="features-grid">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg></div>
+        <h4>Diagnostic différentiel</h4>
+        <p>Suspects classés rouge / orange / jaune avec scores, causes écartées avec justification, cause racine identifiée. Pas une simple traduction de code.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <h4>Bilan de santé véhicule</h4>
+        <p>4 modes : pré‑achat, périodique, pré‑contrôle technique, pré‑route longue. L'IA passe en mode préventif et fournit un plan de maintenance ciblé.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/><path d="M12 2 2 7l10 5 10-5-10-5z"/></svg></div>
+        <h4>Score de fiabilité</h4>
+        <p>Note 0–100 par véhicule, calculée sur statut diagnostic, alertes km, ancienneté du dernier contrôle. Tri automatique par criticité.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Calendrier de maintenance</h4>
+        <p>Vidange, courroie, plaquettes, liquide de frein, contrôle technique. Statut overdue / soon / ok, états d'usure pour les pièces non programmées.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 4 4 5-5"/></svg></div>
+        <h4>Patterns flotte</h4>
+        <p>Détection automatique des codes DTC qui apparaissent sur 2 véhicules ou plus. Identifiez les défauts de série avant qu'ils ne deviennent un problème de flotte.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h4>Rapport PDF expert</h4>
+        <p>Diagnostic ou bilan exporté en PDF paginé proprement (KeepTogether, widows/orphans). Plan d'action chiffré, prêt à transmettre client ou atelier.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11H5a2 2 0 0 0-2 2v7h18v-7a2 2 0 0 0-2-2h-4M12 2v15M6 8l6-6 6 6"/></svg></div>
+        <h4>Détection régression km</h4>
+        <p>Si le compteur affiché est inférieur au précédent diagnostic, RODIA lève une alerte fraude. Particulièrement utile en restitution leasing ou contrôle pré‑achat.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h4>Recherche globale Ctrl+K</h4>
+        <p>Command palette qui cherche véhicules, codes DTC, techniciens. Actions rapides : ouvrir un diagnostic, lancer un bilan, exporter un PDF.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12s1.5-2 7-2 7 2 7 2-1.5 2-7 2-7-2-7-2z"/><path d="M5 6s1.5-2 7-2 7 2 7 2"/><path d="M5 18s1.5 2 7 2 7-2 7-2"/></svg></div>
+        <h4>Rappels NHTSA officiels</h4>
+        <p>Croisement automatique avec la base des rappels constructeurs NHTSA. Si un code correspond à un rappel actif, RODIA le signale dans le diagnostic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC DIFFERENTIEL -->
+<section class="block">
+  <div class="wrap">
+    <div class="diff">
+      <div class="diff-text">
+        <span class="mono">— 04 · Différenciateur</span>
+        <h2>Une cause racine, pas une liste de suspects.</h2>
+        <p>La plupart des outils OBD vous donnent une traduction du code et 5 causes possibles « par fréquence ». RODIA fait un diagnostic différentiel : il pondère chaque cause selon vos données, écarte celles qui ne tiennent pas, identifie le code secondaire d'une cause unique, et chiffre le plan d'action.</p>
+        <p style="margin-top:18px;">Sous le capot : Claude Opus avec un prompt structuré en 4 phases (preuves, corrélations, suspects, verdict), enrichi avec l'historique du véhicule, les réparations passées, et les rappels NHTSA.</p>
+      </div>
+
+      <div class="dt-suspects">
+        <div class="dt-head">
+          <div><span class="code">P0201</span> · Injecteur cylindre 2</div>
+          <div class="conf">Confiance 87%</div>
+        </div>
+        <div class="dt-suspect"><div class="lvl r"></div><div class="label">Injecteur encrassé partiellement<small>cohérent avec fuel_trim +18.7% + démarrage à froid</small></div><div class="score">65%</div></div>
+        <div class="dt-suspect"><div class="lvl o"></div><div class="label">Connecteur injecteur oxydé<small>34 cas similaires sur Kangoo Ph2 dans la base</small></div><div class="score">25%</div></div>
+        <div class="dt-suspect"><div class="lvl y"></div><div class="label">Capteur pression rampe<small>peu probable — pas de codes liés</small></div><div class="score">10%</div></div>
+        <div class="dt-suspect excl"><div class="lvl x"></div><div class="label">Pompe haute pression<small>écartée — pression admission nominale</small></div><div class="score">—</div></div>
+
+        <div class="dt-plan">
+          <div class="h">PLAN D'ACTION</div>
+          <div class="dt-plan-row"><div class="n">01</div><div>Effacer code, rouler 200 km, recontrôler</div><div class="price">Gratuit</div></div>
+          <div class="dt-plan-row"><div class="n">02</div><div>Si récidive : nettoyage injecteur cyl. 2</div><div class="price">85–120€</div></div>
+          <div class="dt-plan-row"><div class="n">03</div><div>Si persiste : remplacement injecteur</div><div class="price">280–420€</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="block" id="usecases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="lead-col">
+        <span class="mono">— 05 · Cas d'usage</span>
+        <h2>Le même outil, plusieurs métiers.</h2>
+      </div>
+      <p>RODIA s'adapte au volume, aux process et au vocabulaire de chaque métier. Choisissez le vôtre.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="fleet">Gestionnaire de flotte</button>
+      <button class="tab" data-tab="leasing">Loueur / leasing</button>
+      <button class="tab" data-tab="garage">Garage / atelier</button>
+      <button class="tab" data-tab="pme">PME 5–50 véhicules</button>
+    </div>
+
+    <div class="uc-panel active" data-panel="fleet">
       <div>
-        <div class="lh-section-label">Notre mission</div>
-        <h2>Technologie au service du terrain</h2>
-        <p>Lyvenia est une entreprise française indépendante. Nous croyons que les professionnels du terrain méritent des outils à la hauteur de leur exigence — sans abonnement opaque, sans interface inutile, sans friction.</p>
-        <p>Chaque logiciel que nous créons est pensé avec ceux qui l'utilisent, pour un usage quotidien dans des conditions réelles.</p>
-      </div>
-
-      <div class="lh-about-values">
-        <div class="lh-value">
-          <div class="lh-value-icon">🇫🇷</div>
-          <div>
-            <strong>Conçu en France</strong>
-            <span>Support, hébergement et développement 100% français</span>
-          </div>
-        </div>
-        <div class="lh-value">
-          <div class="lh-value-icon">🔒</div>
-          <div>
-            <strong>Sécurisé & privé</strong>
-            <span>Vos données restent chez vous. Toujours.</span>
-          </div>
-        </div>
-        <div class="lh-value">
-          <div class="lh-value-icon">⚡</div>
-          <div>
-            <strong>Simple par design</strong>
-            <span>Des interfaces pensées pour aller vite, pas pour impressionner</span>
-          </div>
+        <h3>Vue flotte triée par criticité, action en un clic.</h3>
+        <p>Le dashboard remonte les véhicules les plus critiques en haut. Score de fiabilité, alertes km, codes récurrents, dernier diagnostic — tout sur une ligne. Drill-down dans le diagnostic différentiel, plan d'action prêt à transmettre à l'atelier.</p>
+        <div class="uc-stats">
+          <div class="uc-stat"><div class="v">−23%</div><div class="l">d'immobilisations inattendues</div></div>
+          <div class="uc-stat"><div class="v">×3</div><div class="l">vélocité de traitement des alertes</div></div>
+          <div class="uc-stat"><div class="v">87%</div><div class="l">confiance moyenne IA mesurée</div></div>
+          <div class="uc-stat"><div class="v">1</div><div class="l">app au lieu de 4 outils</div></div>
         </div>
       </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════ CONTACT ══════════ -->
-  <section class="lh-contact">
-    <div class="lh-container">
-      <h2>Une question ? On vous répond.</h2>
-      <p>Démo, devis, ou simplement en savoir plus — notre équipe est disponible.</p>
-      <a href="mailto:contact@lyvenia.fr" class="lh-btn-primary">contact@lyvenia.fr</a>
-    </div>
-  </section>
-
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer class="lh-footer">
-    <div class="lh-container lh-footer-inner">
-      <span class="lh-logo">Lyvenia</span>
-      <div class="lh-footer-links">
-        <a href="/rodia.html">RODIA</a>
-        <a href="mailto:contact@lyvenia.fr">Contact</a>
-        <a href="/mentions-legales.html">Mentions légales</a>
-        <a href="/cgv.html">CGV</a>
-        <a href="/politique-confidentialite.html">Confidentialité</a>
+      <div class="uc-scene">
+        <div class="sh"><span>FLOTTE TRIÉE PAR SCORE</span><span>127 VÉHICULES</span></div>
+        <div class="uc-row"><div class="left"><span class="pill urg">42</span><div><div class="val">Kangoo · #FR‑214</div><div style="color:var(--ink-3);font-size:11px">P0201 récidive · injecteur cyl.2</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">Diag →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill warn">68</span><div><div class="val">Partner · #FR‑087</div><div style="color:var(--ink-3);font-size:11px">P0420 catalyseur · à planifier</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">Plan →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill">PATTERN</span><div><div class="val">P0420 sur 3 Partner Ph2</div><div style="color:var(--ink-3);font-size:11px">Défaut série suspecté</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">Voir →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">94</span><div><div class="val">Jumpy · #FR‑055</div><div style="color:var(--ink-3);font-size:11px">Bilan périodique conforme</div></div></div><span style="color:var(--ink-3);font-size:11px">Archivé</span></div>
       </div>
-      <span class="lh-footer-copy">© 2026 Lyvenia — Bastien Rodrigues de Souza Meireles</span>
     </div>
-  </footer>
 
+    <div class="uc-panel" data-panel="leasing">
+      <div>
+        <h3>Restitutions justifiées, fraude compteur détectée.</h3>
+        <p>Bilan pré‑restitution chiffré, plan de maintenance restant à charge, score de santé horodaté. Si un véhicule revient avec un kilométrage inférieur au précédent diagnostic, RODIA lève automatiquement une alerte fraude.</p>
+        <div class="uc-stats">
+          <div class="uc-stat"><div class="v">−41%</div><div class="l">litiges client à la restitution</div></div>
+          <div class="uc-stat"><div class="v">100%</div><div class="l">traçabilité OBD horodatée</div></div>
+          <div class="uc-stat"><div class="v">15min</div><div class="l">pour générer un rapport</div></div>
+          <div class="uc-stat"><div class="v">Auto</div><div class="l">détection régression km</div></div>
+        </div>
+      </div>
+      <div class="uc-scene">
+        <div class="sh"><span>BILANS RESTITUTION</span><span>SEMAINE 18</span></div>
+        <div class="uc-row"><div class="left"><span class="pill urg">FRAUDE</span><div><div class="val">LC‑2401 · Peugeot 308</div><div style="color:var(--ink-3);font-size:11px">Compteur −2 800 km vs précédent</div></div></div><a href="#" style="color:var(--danger);font-size:12px">Investiguer →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill warn">USURE</span><div><div class="val">LC‑2388 · Ford Transit</div><div style="color:var(--ink-3);font-size:11px">Plaquettes AV à changer · 180€</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">Facturer →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">OK</span><div><div class="val">LC‑2301 · Renault Clio</div><div style="color:var(--ink-3);font-size:11px">Bilan conforme · score 91</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">PDF →</a></div>
+        <div class="uc-row"><div class="left"><span class="pill">CT</span><div><div class="val">LC‑2377 · Dacia Duster</div><div style="color:var(--ink-3);font-size:11px">Pré‑CT validé sans réserve</div></div></div><a href="#" style="color:var(--accent-ink);font-size:12px">PDF →</a></div>
+      </div>
+    </div>
+
+    <div class="uc-panel" data-panel="garage">
+      <div>
+        <h3>Recevez des véhicules pré-diagnostiqués.</h3>
+        <p>Vos clients flotte ou leur conducteur arrivent avec un PDF RODIA en main : code DTC, suspects pondérés, plan d'action chiffré, pièces probables. Vous gagnez le temps de diagnostic et concentrez votre expertise sur l'intervention.</p>
+        <div class="uc-stats">
+          <div class="uc-stat"><div class="v">−38%</div><div class="l">temps de diagnostic à réception</div></div>
+          <div class="uc-stat"><div class="v">+2,1</div><div class="l">véhicules traités / jour / pont</div></div>
+          <div class="uc-stat"><div class="v">94%</div><div class="l">diagnostics IA confirmés</div></div>
+          <div class="uc-stat"><div class="v">0</div><div class="l">saisie manuelle d'OR</div></div>
+        </div>
+      </div>
+      <div class="uc-scene">
+        <div class="sh"><span>PLANNING ATELIER · MAR.</span><span>BAIE 1–4</span></div>
+        <div class="uc-row"><div class="left"><span class="pill">09:00</span><div><div class="val">Kangoo · Injecteur cyl.2</div><div style="color:var(--ink-3);font-size:11px">Confiance IA 87% · pièce commandée</div></div></div><span class="pill ok">Prêt</span></div>
+        <div class="uc-row"><div class="left"><span class="pill">10:30</span><div><div class="val">Partner · Catalyseur</div><div style="color:var(--ink-3);font-size:11px">Plan validé client · 680€</div></div></div><span class="pill ok">Prêt</span></div>
+        <div class="uc-row"><div class="left"><span class="pill">14:00</span><div><div class="val">Trafic · Bilan pré‑CT</div><div style="color:var(--ink-3);font-size:11px">Bilan demandé par flotte</div></div></div><span class="pill warn">À chiffrer</span></div>
+        <div class="uc-row"><div class="left"><span class="pill">16:00</span><div><div class="val">Jumpy · Vidange + filtres</div><div style="color:var(--ink-3);font-size:11px">Maintenance programmée</div></div></div><span class="pill ok">Prêt</span></div>
+      </div>
+    </div>
+
+    <div class="uc-panel" data-panel="pme">
+      <div>
+        <h3>Pas de DSI, pas de problème.</h3>
+        <p>RODIA est une app Windows native. Boîtier OBD livré prêt à brancher, splash de démarrage, recherche Ctrl+K, tour guidé interactif, centre d'aide intégré. Votre outil de flotte ne doit pas être un projet IT.</p>
+        <div class="uc-stats">
+          <div class="uc-stat"><div class="v">45min</div><div class="l">setup d'une flotte de 10 véh.</div></div>
+          <div class="uc-stat"><div class="v">29€</div><div class="l">par véhicule par mois</div></div>
+          <div class="uc-stat"><div class="v">0</div><div class="l">cloud requis · données locales</div></div>
+          <div class="uc-stat"><div class="v">FR</div><div class="l">support humain francophone</div></div>
+        </div>
+      </div>
+      <div class="uc-scene">
+        <div class="sh"><span>ONBOARDING · JOUR 1</span><span>10 VÉH.</span></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">✓</span><div class="val">Installation RODIA Windows</div></div><span style="color:var(--ink-3);font-size:11px">3 min</span></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">✓</span><div class="val">1ᵉʳ VIN scanné · véhicule créé</div></div><span style="color:var(--ink-3);font-size:11px">2 min</span></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">✓</span><div class="val">Tour guidé 6 étapes complété</div></div><span style="color:var(--ink-3);font-size:11px">5 min</span></div>
+        <div class="uc-row"><div class="left"><span class="pill ok">✓</span><div class="val">10 véhicules dans la flotte</div></div><span style="color:var(--ink-3);font-size:11px">35 min</span></div>
+        <div class="uc-row"><div class="left"><span class="pill">→</span><div class="val">Premier bilan périodique</div></div><span style="color:var(--accent-ink);font-size:12px">Demain</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block" id="contact" style="border-top:0;">
+  <div class="wrap">
+    <div class="cta">
+      <div class="cta-inner">
+        <div>
+          <span class="mono">— 06 · Bientôt disponible</span>
+          <h2>RODIA arrive.</h2>
+          <p>Le logiciel est en finalisation. Inscrivez-vous pour être prévenu·e dès l'ouverture des accès, et faire partie des premiers utilisateurs à diagnostiquer leur flotte avec RODIA.</p>
+          <div class="hero-meta" style="margin-top:0;">
+            <span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Sans engagement</span>
+            <span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Accès anticipé prioritaire</span>
+          </div>
+        </div>
+        <div class="cta-form">
+          <div class="soon-badge">
+            <span class="pulse"></span>
+            <span>Bientôt disponible</span>
+          </div>
+          <h3 style="font-size:20px;margin:14px 0 6px;letter-spacing:-0.02em;">Lancement imminent</h3>
+          <p style="font-size:13.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.5;">Le formulaire d'inscription ouvrira ici dans les prochaines semaines. En attendant, écrivez-nous directement.</p>
+          <a href="/cdn-cgi/l/email-protection#dbb8b4b5afbab8af9bb7a2adbeb5b2baf5bda9e4a8aeb9b1beb8afe692b5af1872a91871affee9eb89949f929a" class="btn btn-primary" style="width:100%;justify-content:center;padding:11px;"><span class="__cf_email__" data-cfemail="cdaea2a3b9acaeb98da1b4bba8a3a4ace3abbf">[email&#160;protected]</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand-col">
+        <a href="#" class="brand"><span class="mark"></span>Lyvenia</a>
+        <p>Logiciels SaaS pour la mobilité professionnelle. RODIA est notre premier produit — diagnostic auto connecté + gestion de flotte.</p>
+      </div>
+      <div>
+        <h5>Produits</h5>
+        <ul>
+          <li><a href="#rodia">RODIA</a></li>
+          <li><a href="#">Téléchargement Windows</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Compatibilité OBD</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Entreprise</h5>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Carrières</a></li>
+          <li><a href="#">Presse</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Ressources</h5>
+        <ul>
+          <li><a href="#">Centre d'aide</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Sécurité &amp; RGPD</a></li>
+          <li><a href="#">Statut</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Lyvenia SAS</span>
+      <span>Mentions légales · CGU · Confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Theme
+  (function(){
+    const root = document.documentElement;
+    const saved = localStorage.getItem('lyvenia-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('lyvenia-theme', next);
+    });
+  })();
+
+  // Workflow steps
+  document.querySelectorAll('.wf-step').forEach(step => {
+    step.addEventListener('click', () => {
+      const s = step.dataset.step;
+      document.querySelectorAll('.wf-step').forEach(x => x.classList.toggle('active', x === step));
+      document.querySelectorAll('.wf-content').forEach(c => c.classList.toggle('active', c.dataset.content === s));
+    });
+  });
+
+  // Tabs
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const t = tab.dataset.tab;
+      document.querySelectorAll('.tab').forEach(x => x.classList.toggle('active', x === tab));
+      document.querySelectorAll('.uc-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === t));
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' }); }
+      }
+    });
+  });
+</script>
 </body>
 </html>
