@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Tarifs RODIA — Lyvenia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Tarifs RODIA — Diagnostic embarqué pour sociétés de taxi, VSL, ambulance. Essai gratuit 14 jours, sans engagement.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ══════════════════════════════════════════════════════════════════════════
+     DA Lyvenia — variables OKLCH partagées avec index.html
+     ══════════════════════════════════════════════════════════════════════════ */
+  :root, [data-theme="light"] {
+    --bg: oklch(0.97 0.012 85);
+    --bg-soft: oklch(0.955 0.015 85);
+    --surface: oklch(0.99 0.008 85);
+    --ink: oklch(0.24 0.04 150);
+    --ink-2: oklch(0.42 0.03 150);
+    --ink-3: oklch(0.58 0.02 150);
+    --line: oklch(0.88 0.015 110);
+    --line-soft: oklch(0.92 0.012 110);
+    --accent: oklch(0.74 0.12 30);
+    --accent-ink: oklch(0.55 0.14 30);
+    --accent-soft: oklch(0.93 0.05 30);
+    --warn: oklch(0.68 0.14 55);
+    --ok: oklch(0.55 0.12 150);
+    --danger: oklch(0.6 0.18 25);
+    --featured-bg: oklch(0.2 0.04 150);
+    --featured-ink: oklch(0.97 0.012 85);
+    --featured-ink-2: oklch(0.82 0.02 110);
+    --featured-chip-bg: oklch(0.26 0.045 150);
+    --featured-chip-line: oklch(0.36 0.04 150);
+    --featured-chip-ink: oklch(0.88 0.02 85);
+    --btn-primary-bg: var(--ink);
+    --btn-primary-ink: oklch(0.97 0.012 85);
+    --btn-primary-hover: oklch(0.32 0.05 150);
+    --shadow-mock: 0 1px 0 rgba(40,60,45,.03), 0 20px 40px -20px rgba(30,50,40,.15);
+    --grid-tint: oklch(0.88 0.02 140 / 0.5);
+    --modal-overlay: oklch(0.18 0.04 150 / 0.55);
+    --r: 10px;
+  }
+  [data-theme="dark"] {
+    --bg: oklch(0.18 0.035 150);
+    --bg-soft: oklch(0.22 0.035 150);
+    --surface: oklch(0.24 0.035 150);
+    --ink: oklch(0.96 0.018 85);
+    --ink-2: oklch(0.78 0.02 110);
+    --ink-3: oklch(0.58 0.025 140);
+    --line: oklch(0.32 0.03 150);
+    --line-soft: oklch(0.28 0.03 150);
+    --accent: oklch(0.78 0.11 30);
+    --accent-ink: oklch(0.82 0.12 30);
+    --accent-soft: oklch(0.34 0.08 30);
+    --warn: oklch(0.75 0.14 55);
+    --ok: oklch(0.72 0.13 150);
+    --danger: oklch(0.7 0.18 25);
+    --featured-bg: oklch(0.28 0.04 150);
+    --featured-ink: oklch(0.96 0.018 85);
+    --featured-ink-2: oklch(0.8 0.02 110);
+    --featured-chip-bg: oklch(0.33 0.04 150);
+    --featured-chip-line: oklch(0.42 0.04 150);
+    --featured-chip-ink: oklch(0.88 0.02 85);
+    --btn-primary-bg: var(--accent);
+    --btn-primary-ink: oklch(0.2 0.04 30);
+    --btn-primary-hover: oklch(0.82 0.12 30);
+    --shadow-mock: 0 1px 0 rgba(0,0,0,.3), 0 20px 40px -20px rgba(0,0,0,.6);
+    --grid-tint: oklch(0.3 0.035 150 / 0.4);
+    --modal-overlay: oklch(0.08 0.02 150 / 0.7);
+  }
+
+  html { transition: background .3s ease; }
+  body { transition: background .3s ease, color .3s ease; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11", "tnum";
+    background-image:
+      linear-gradient(var(--grid-tint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-tint) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Inter Tight', sans-serif; font-weight: 600; letter-spacing: -0.02em; margin: 0; color: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-3); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── Boutons ── */
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: all .15s ease; font-family: inherit; }
+  .btn-ghost { color: var(--ink-2); }
+  .btn-ghost:hover { color: var(--ink); background: var(--bg-soft); }
+  .btn-outline { border-color: var(--line); background: var(--surface); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-ink); }
+  .btn-primary:hover { background: var(--btn-primary-hover); }
+  .btn:disabled { opacity: .55; cursor: not-allowed; }
+  .btn svg { width: 14px; height: 14px; }
+  .btn-block { width: 100%; justify-content: center; padding: 11px 14px; }
+  .btn-lg { padding: 11px 18px; font-size: 14px; }
+
+  /* ── Theme toggle ── */
+  .theme-toggle { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; cursor: pointer; color: var(--ink-2); transition: all .15s; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+  .theme-toggle svg { width: 15px; height: 15px; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+
+  /* ── Nav ── */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklch, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { font-family: 'Inter Tight'; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .brand .mark { width: 20px; height: 20px; border-radius: 5px; background: var(--featured-bg); position: relative; }
+  .brand .mark::after { content: ""; position: absolute; inset: 5px; border-radius: 2px; background: var(--accent); }
+  .nav-back { font-size: 13.5px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--ink); }
+  .nav-cta { display: flex; gap: 10px; align-items: center; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     HEADER + PRICING
+     ══════════════════════════════════════════════════════════════════════════ */
+  header.page-head { padding: 80px 0 48px; }
+  header.page-head .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 18px; }
+  header.page-head h1 { font-size: clamp(36px, 4.5vw, 56px); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 18px; max-width: 720px; }
+  header.page-head h1 em { font-style: normal; color: var(--accent-ink); font-weight: 500; }
+  header.page-head p.lead { font-size: 17px; color: var(--ink-2); max-width: 620px; margin: 0; }
+  header.page-head .legal { font-size: 12.5px; color: var(--ink-3); margin-top: 14px; }
+
+  /* Toggle mensuel/annuel */
+  .period-toggle { display: inline-flex; padding: 4px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 99px; gap: 2px; margin: 36px 0 0; }
+  .period-btn { padding: 8px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 500; color: var(--ink-2); background: transparent; border: none; cursor: pointer; font-family: inherit; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+  .period-btn:hover { color: var(--ink); }
+  .period-btn.is-active { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .period-save { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 6px; border-radius: 99px; background: var(--accent-soft); color: var(--accent-ink); letter-spacing: 0.04em; }
+
+  /* Grille pricing — 4 cards */
+  section.pricing { padding: 0 0 96px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .price-card {
+    border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px;
+    background: var(--surface); display: flex; flex-direction: column; gap: 18px; min-height: 480px;
+    position: relative;
+  }
+  .price-card.featured {
+    background: var(--featured-bg); color: var(--featured-ink);
+    border-color: var(--featured-bg); overflow: hidden;
+  }
+  .price-card.featured::before {
+    content: ""; position: absolute; top: -100px; right: -100px; width: 280px; height: 280px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity: 0.22;
+  }
+  .price-card.enterprise { background: var(--bg-soft); border-style: dashed; }
+
+  .price-card > * { position: relative; z-index: 1; }
+
+  .price-tier {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-3);
+  }
+  .price-card.featured .price-tier { color: var(--featured-ink-2); }
+
+  .price-name { font-family: 'Inter Tight'; font-weight: 600; font-size: 22px; letter-spacing: -0.02em; }
+
+  .price-num { display: flex; align-items: baseline; gap: 6px; margin-top: -2px; }
+  .price-num .amount { font-family: 'Inter Tight'; font-weight: 600; font-size: 38px; letter-spacing: -0.03em; line-height: 1; }
+  .price-num .unit { font-size: 13px; color: var(--ink-3); }
+  .price-card.featured .price-num .unit { color: var(--featured-ink-2); }
+  .price-num .amount-text { font-size: 26px; font-weight: 600; }
+
+  .price-billed { font-size: 12px; color: var(--ink-3); min-height: 1.1em; margin-top: -4px; }
+  .price-card.featured .price-billed { color: var(--featured-ink-2); }
+
+  .price-fleet {
+    font-size: 13.5px; color: var(--ink-2);
+    padding-bottom: 16px; border-bottom: 1px solid var(--line-soft);
+  }
+  .price-card.featured .price-fleet { color: var(--featured-ink-2); border-color: var(--featured-chip-line); }
+  .price-card.enterprise .price-fleet { border-color: var(--line); }
+  .price-fleet strong { color: inherit; }
+
+  .price-feats { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .price-feats li {
+    font-size: 13.5px; color: var(--ink-2); display: flex; gap: 8px; align-items: flex-start;
+  }
+  .price-card.featured .price-feats li { color: var(--featured-ink-2); }
+  .price-feats li::before { content: ""; width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c87864' stroke-width='2.5'><path d='M20 6 9 17l-5-5'/></svg>"); background-size: contain; background-repeat: no-repeat; }
+
+  /* CTA dans card featured = bouton accent */
+  .price-card.featured .btn-primary { background: var(--accent); color: var(--featured-bg); }
+  .price-card.featured .btn-primary:hover { background: oklch(0.82 0.12 30); }
+  .price-card.featured .btn-outline { background: var(--featured-chip-bg); border-color: var(--featured-chip-line); color: var(--featured-chip-ink); }
+  .price-card.featured .btn-outline:hover { border-color: var(--accent); }
+
+  .price-badge {
+    position: absolute; top: -1px; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 4px 10px; background: var(--accent); color: var(--featured-bg);
+    border-radius: 99px; white-space: nowrap;
+  }
+
+  .pricing-foot {
+    margin-top: 32px; text-align: center; font-size: 13px; color: var(--ink-3);
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  }
+  .pricing-foot span { display: inline-flex; align-items: center; gap: 6px; }
+  .pricing-foot svg { width: 13px; height: 13px; color: var(--accent); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     MODALS — Inscription + Enterprise
+     ══════════════════════════════════════════════════════════════════════════ */
+  .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; animation: modalFadeIn .18s ease-out; }
+  .modal[hidden] { display: none; }
+  @keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal-backdrop { position: absolute; inset: 0; background: var(--modal-overlay); backdrop-filter: blur(6px); cursor: pointer; }
+  .modal-card {
+    position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    width: 100%; max-width: 540px; max-height: 92vh; overflow-y: auto;
+    padding: 32px; box-shadow: 0 24px 60px -16px rgba(30,50,40,.25);
+    animation: modalSlideUp .22s ease-out;
+  }
+  @keyframes modalSlideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-close {
+    position: absolute; top: 12px; right: 12px; width: 32px; height: 32px;
+    border-radius: 8px; border: none; background: transparent; color: var(--ink-3);
+    font-size: 22px; line-height: 1; cursor: pointer; transition: all .15s;
+  }
+  .modal-close:hover { background: var(--bg-soft); color: var(--ink); }
+
+  .modal-header { margin-bottom: 22px; }
+  .modal-eyebrow {
+    display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-ink);
+    background: var(--accent-soft); padding: 4px 10px; border-radius: 6px; margin-bottom: 12px;
+  }
+  .modal-header h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .modal-sub { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+  .modal-form { display: flex; flex-direction: column; gap: 14px; }
+  .modal-row { display: flex; gap: 12px; }
+  .modal-row .field { flex: 1; }
+  .modal-row .flex-2 { flex: 2; }
+
+  .field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .field label { font-size: 12.5px; font-weight: 500; color: var(--ink); display: flex; gap: 4px; align-items: baseline; }
+  .field .req { color: var(--accent-ink); }
+  .field .opt { color: var(--ink-3); font-weight: 400; font-size: 11.5px; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--bg);
+    color: var(--ink); font-family: inherit; font-size: 14px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--ink-3);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 15%, transparent);
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--ink-3); opacity: .7; }
+  .field textarea { resize: vertical; min-height: 76px; font-family: inherit; }
+  .field .hint { font-size: 11.5px; color: var(--ink-3); }
+
+  /* SIRET avec status (loading/ok/ko/warn) */
+  .siret-wrap { position: relative; }
+  .siret-status { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; pointer-events: none; line-height: 1; }
+  .siret-status.is-loading::after { content: "⏳"; animation: siretSpin 1s linear infinite; display: inline-block; }
+  .siret-status.is-ok::after  { content: "✓"; color: var(--ok); font-weight: 700; }
+  .siret-status.is-ko::after  { content: "✗"; color: var(--danger); font-weight: 700; }
+  .siret-status.is-warn::after{ content: "⚠"; color: var(--warn); font-weight: 700; }
+  @keyframes siretSpin { from { transform: translateY(-50%) rotate(0); } to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* Récap tarif */
+  .modal-summary {
+    background: var(--bg-soft); border: 1px solid var(--line-soft); border-radius: 10px;
+    padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; margin-top: 4px;
+  }
+  .modal-summary-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--ink-2); }
+  .modal-summary-row strong { color: var(--ink); font-weight: 500; }
+  .modal-summary-row.total {
+    border-top: 1px solid var(--line); padding-top: 7px; margin-top: 3px;
+  }
+  .modal-summary-row.total strong { color: var(--accent-ink); font-weight: 600; }
+
+  .modal-error {
+    background: color-mix(in oklch, var(--danger) 10%, var(--bg));
+    border: 1px solid color-mix(in oklch, var(--danger) 30%, var(--line));
+    color: var(--danger); padding: 10px 12px; border-radius: 8px; font-size: 13px;
+  }
+  .modal-foot { font-size: 11.5px; color: var(--ink-3); text-align: center; margin: 12px 0 0; line-height: 1.5; }
+  .modal-foot a { color: var(--accent-ink); }
+
+  .modal-success { text-align: center; padding: 36px 8px 12px; }
+  .modal-success .check {
+    width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft);
+    display: grid; place-items: center; margin: 0 auto 16px; color: var(--accent-ink); font-size: 28px;
+  }
+  .modal-success h3 { font-size: 18px; margin-bottom: 6px; }
+  .modal-success p { color: var(--ink-2); font-size: 14px; margin: 0; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════════════════ */
+  footer { border-top: 1px solid var(--line-soft); padding: 40px 0 32px; margin-top: 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  footer .copy { font-size: 12px; color: var(--ink-3); }
+  footer .links { font-size: 12px; color: var(--ink-3); display: flex; gap: 16px; }
+  footer .links a:hover { color: var(--ink); }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════════════════════════════════════ */
+  @media (max-width: 1100px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .modal-row { flex-direction: column; }
+    .modal-card { padding: 24px 20px; }
+    header.page-head { padding: 56px 0 32px; }
+    nav.top .nav-back span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="top">
+  <div class="wrap">
+    <a href="/" class="brand"><span class="mark"></span>Lyvenia</a>
+    <a href="/" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Retour à l'accueil</span>
+    </a>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" aria-label="Thème">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">— 06 · Tarifs</div>
+    <h1>Le bon plan pour <em>chaque flotte.</em></h1>
+    <p class="lead">RODIA pour les sociétés de taxi, VSL et ambulance. Essai gratuit 14 jours, sans engagement, résiliation à tout moment.</p>
+    <p class="legal">Tarifs HT — TVA non applicable, art. 293 B du CGI · Paiement sécurisé Stripe · Données traitées en France (Postgres EU)</p>
+
+    <!-- Toggle Mensuel/Annuel -->
+    <div class="period-toggle" role="tablist">
+      <button type="button" class="period-btn is-active" data-period="monthly" role="tab" aria-selected="true">Mensuel</button>
+      <button type="button" class="period-btn" data-period="annual" role="tab" aria-selected="false">
+        Annuel <span class="period-save">−20%</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ PRICING ══════════ -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+
+      <!-- ── Société (1-5) ── -->
+      <div class="price-card" data-tier="solo">
+        <div>
+          <div class="price-tier">Société</div>
+          <div class="price-name">Société</div>
+        </div>
+        <div>
+          <div class="price-num">
+            <span class="amount" data-monthly="60" data-annual="48">60</span>
+            <span class="unit">€ HT / mois</span>
+          </div>
+          <div class="price-billed" data-monthly-text="" data-annual-text="Facturé 576 € HT/an"></div>
+        </div>
+        <div class="price-fleet">1 à <strong>5 véhicules</strong></div>
+        <ul class="price-feats">
+          <li>Diagnostic OBD-II illimité</li>
+          <li>Analyse IA des codes DTC</li>
+          <li>Gestion de flotte basique</li>
+          <li>Rapports PDF de diagnostic</li>
+          <li>Support email</li>
+        </ul>
+        <button type="button" class="btn btn-outline btn-block js-checkout" data-tier="solo">Démarrer l'essai gratuit</button>
+      </div>
+
+      <!-- ── Société + (6-10) — featured ── -->
+      <div class="price-card featured" data-tier="flotte">
+        <div class="price-badge">Le plus choisi</div>
+        <div>
+          <div class="price-tier">Société +</div>
+          <div class="price-name">Société +</div>
+        </div>
+        <div>
+          <div class="price-num">
+            <span class="amount" data-monthly="110" data-annual="88">110</span>
+            <span class="unit">€ HT / mois</span>
+          </div>
+          <div class="price-billed" data-monthly-text="" data-annual-text="Facturé 1 056 € HT/an"></div>
+        </div>
+        <div class="price-fleet">6 à <strong>10 véhicules</strong></div>
+        <ul class="price-feats">
+          <li>Tout le plan Société</li>
+          <li>Tableau de bord avancé</li>
+          <li>Alertes kilométrage / CT</li>
+          <li>Export Excel flotte</li>
+          <li>Support prioritaire</li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-block js-checkout" data-tier="flotte">Démarrer l'essai gratuit</button>
+      </div>
+
+      <!-- ── Société Pro (11-20) ── -->
+      <div class="price-card" data-tier="pro">
+        <div>
+          <div class="price-tier">Société Pro</div>
+          <div class="price-name">Société Pro</div>
+        </div>
+        <div>
+          <div class="price-num">
+            <span class="amount" data-monthly="160" data-annual="128">160</span>
+            <span class="unit">€ HT / mois</span>
+          </div>
+          <div class="price-billed" data-monthly-text="" data-annual-text="Facturé 1 536 € HT/an"></div>
+        </div>
+        <div class="price-fleet">11 à <strong>20 véhicules</strong></div>
+        <ul class="price-feats">
+          <li>Tout le plan Société +</li>
+          <li>Multi-utilisateurs</li>
+          <li>Historique complet</li>
+          <li>Audit conformité ARS / VTC</li>
+          <li>Support téléphonique</li>
+        </ul>
+        <button type="button" class="btn btn-outline btn-block js-checkout" data-tier="pro">Démarrer l'essai gratuit</button>
+      </div>
+
+      <!-- ── Enterprise ── -->
+      <div class="price-card enterprise" data-tier="enterprise">
+        <div>
+          <div class="price-tier">Enterprise</div>
+          <div class="price-name">Sur mesure</div>
+        </div>
+        <div>
+          <div class="price-num">
+            <span class="amount amount-text">Sur devis</span>
+          </div>
+          <div class="price-billed">Facturation adaptée à votre flotte</div>
+        </div>
+        <div class="price-fleet"><strong>20+ véhicules</strong> · Multi-sites</div>
+        <ul class="price-feats">
+          <li>Tout le plan Société Pro</li>
+          <li>Onboarding personnalisé</li>
+          <li>Formation équipe sur site</li>
+          <li>SLA garanti 99,9%</li>
+          <li>Account manager dédié</li>
+        </ul>
+        <button type="button" class="btn btn-outline btn-block js-enterprise">Nous contacter</button>
+      </div>
+
+    </div>
+
+    <div class="pricing-foot">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Essai 14 jours sans engagement</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Résiliation en 1 clic</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Données en France · RGPD</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Paiement sécurisé Stripe</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap">
+    <span class="copy">© 2026 Lyvenia · Bastien Rodrigues de Souza Meireles</span>
+    <span class="links">
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/cgv.html">CGV</a>
+      <a href="/politique-confidentialite.html">Confidentialité</a>
+      <a href="mailto:contact@lyvenia.fr">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     MODAL : Démarrer l'essai (3 tiers payants)
+     ══════════════════════════════════════════════════════════ -->
+<div class="modal" id="checkoutModal" hidden role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <button type="button" class="modal-close" data-close-modal aria-label="Fermer">×</button>
+    <div class="modal-header">
+      <span class="modal-eyebrow">Essai 14 jours · Sans engagement</span>
+      <h2 id="checkoutTitle">Démarrer <span id="modalTierLabel">RODIA</span></h2>
+      <p class="modal-sub">Renseignez votre SIRET, on remplit le reste pour vous.</p>
+    </div>
+
+    <form class="modal-form" id="checkoutForm" novalidate>
+      <!-- SIRET avec auto-fill -->
+      <div class="field">
+        <label for="f-siret">SIRET <span class="req">*</span></label>
+        <div class="siret-wrap">
+          <input type="text" id="f-siret" name="siret" inputmode="numeric" maxlength="14" placeholder="14 chiffres" required>
+          <span class="siret-status" id="siretStatus" aria-live="polite"></span>
+        </div>
+        <span class="hint">On remplit nom et adresse depuis l'INSEE.</span>
+      </div>
+
+      <div class="field">
+        <label for="f-company">Nom de société <span class="req">*</span></label>
+        <input type="text" id="f-company" name="company_name" placeholder="Auto-rempli depuis SIRET" required>
+      </div>
+
+      <div class="field">
+        <label for="f-address">Adresse</label>
+        <input type="text" id="f-address" name="address" placeholder="Auto-rempli">
+      </div>
+      <div class="modal-row">
+        <div class="field flex-2">
+          <label for="f-city">Ville</label>
+          <input type="text" id="f-city" name="city" placeholder="Auto-rempli">
+        </div>
+        <div class="field">
+          <label for="f-zip">Code postal</label>
+          <input type="text" id="f-zip" name="zip_code" placeholder="Auto">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email professionnel <span class="req">*</span></label>
+        <input type="email" id="f-email" name="email" placeholder="contact@votre-societe.fr" required>
+      </div>
+
+      <div class="modal-row">
+        <div class="field">
+          <label for="f-phone">Téléphone <span class="opt">(optionnel)</span></label>
+          <input type="tel" id="f-phone" name="phone" placeholder="06 12 34 56 78">
+        </div>
+        <div class="field">
+          <label for="f-activity">Activité <span class="opt">(optionnel)</span></label>
+          <select id="f-activity" name="activity">
+            <option value="">Sélectionner…</option>
+            <option value="taxi">Taxi / VTC</option>
+            <option value="vsl">VSL</option>
+            <option value="ambulance">Ambulance</option>
+            <option value="mixte">Mixte (plusieurs)</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-summary">
+        <div class="modal-summary-row"><span>Plan</span><strong id="summaryPlan">—</strong></div>
+        <div class="modal-summary-row"><span>Essai</span><strong>14 jours, sans engagement</strong></div>
+        <div class="modal-summary-row total"><span>Puis</span><strong id="summaryPrice">—</strong></div>
+      </div>
+
+      <div class="modal-error" id="modalError" hidden></div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-lg" id="modalSubmit">
+        Continuer vers le paiement
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+
+      <p class="modal-foot">
+        🔒 Paiement sécurisé via Stripe · Données traitées selon RGPD<br>
+        Une question ? <a href="mailto:contact@lyvenia.fr">contact@lyvenia.fr</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MODAL : Enterprise
+     ══════════════════════════════════════════════════════════ -->
+<div class="modal" id="enterpriseModal" hidden role="dialog" aria-modal="true" aria-labelledby="enterpriseTitle">
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-card">
+    <button type="button" class="modal-close" data-close-modal aria-label="Fermer">×</button>
+    <div class="modal-header">
+      <span class="modal-eyebrow">Plan Enterprise · Sur devis</span>
+      <h2 id="enterpriseTitle">Parlons de votre flotte</h2>
+      <p class="modal-sub">Plus de 20 véhicules ? Multi-sites ? Réponse sous 24h ouvrées.</p>
+    </div>
+
+    <form class="modal-form" id="enterpriseForm" novalidate>
+      <div class="field">
+        <label for="ef-company">Nom de société <span class="req">*</span></label>
+        <input type="text" id="ef-company" name="company_name" required>
+      </div>
+      <div class="field">
+        <label for="ef-email">Email professionnel <span class="req">*</span></label>
+        <input type="email" id="ef-email" name="email" required>
+      </div>
+      <div class="modal-row">
+        <div class="field">
+          <label for="ef-phone">Téléphone</label>
+          <input type="tel" id="ef-phone" name="phone">
+        </div>
+        <div class="field">
+          <label for="ef-fleet">Taille de flotte <span class="req">*</span></label>
+          <input type="text" id="ef-fleet" name="fleet_size" placeholder="Ex : 35 véhicules" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="ef-siret">SIRET <span class="opt">(optionnel)</span></label>
+        <input type="text" id="ef-siret" name="siret" maxlength="14">
+      </div>
+      <div class="field">
+        <label for="ef-message">Précisions <span class="opt">(optionnel)</span></label>
+        <textarea id="ef-message" name="message" rows="3" placeholder="Multi-sites, besoins spécifiques, planning…"></textarea>
+      </div>
+
+      <div class="modal-error" id="enterpriseError" hidden></div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-lg" id="enterpriseSubmit">
+        Envoyer ma demande
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+
+      <p class="modal-foot">
+        On vous recontacte sous 24h ouvrées (lun-ven).
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script>
+  // Theme toggle (synchro avec index.html via même localStorage key)
+  (function(){
+    const root = document.documentElement;
+    const saved = localStorage.getItem('lyvenia-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('lyvenia-theme', next);
+    });
+  })();
+</script>
+<script src="checkout.js"></script>
+
+</body>
+</html>

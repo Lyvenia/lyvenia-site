@@ -24,23 +24,28 @@
 
   let currentPeriod = "monthly";
 
-  document.querySelectorAll(".pricing-toggle-btn").forEach(btn => {
+  // Boutons toggle — supporte les 2 conventions (ancien rodia.html `.pricing-toggle-btn`
+  // + nouveau tarifs.html `.period-btn`) au cas où les 2 pages cohabitent.
+  const toggleSelector = ".period-btn, .pricing-toggle-btn";
+
+  document.querySelectorAll(toggleSelector).forEach(btn => {
     btn.addEventListener("click", () => {
       const period = btn.dataset.period;
       if (period === currentPeriod) return;
       currentPeriod = period;
 
-      document.querySelectorAll(".pricing-toggle-btn").forEach(b => {
+      document.querySelectorAll(toggleSelector).forEach(b => {
         const active = b.dataset.period === period;
         b.classList.toggle("is-active", active);
         b.setAttribute("aria-selected", active ? "true" : "false");
       });
 
-      // Met à jour les prix affichés sur les cards
-      document.querySelectorAll(".price-amount[data-monthly]").forEach(el => {
+      // Met à jour les prix sur les cards (matches both `.amount` and `.price-amount`)
+      document.querySelectorAll(".amount[data-monthly], .price-amount[data-monthly]").forEach(el => {
         el.textContent = el.dataset[period];
       });
-      document.querySelectorAll(".pricing-billed").forEach(el => {
+      // Update du libellé "facturé X €/an" (.price-billed nouveau, .pricing-billed ancien)
+      document.querySelectorAll(".price-billed, .pricing-billed").forEach(el => {
         el.textContent = el.dataset[period + "Text"] || "";
       });
     });

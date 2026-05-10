@@ -1,169 +1,243 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenue chez Lyvenia — Votre essai RODIA a démarré</title>
-  <meta name="description" content="Votre essai gratuit RODIA est démarré. Vérifiez votre boîte mail pour vos identifiants de connexion.">
-  <meta name="robots" content="noindex">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta charset="UTF-8">
+<title>Bienvenue chez Lyvenia — Votre essai RODIA a démarré</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Votre essai gratuit RODIA est démarré. Vérifiez votre boîte mail pour vos identifiants.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    .merci-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 24px;
-    }
-    .merci-card {
-      max-width: 580px;
-      width: 100%;
-      background: var(--green-800);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 3rem 2.5rem;
-      text-align: center;
-    }
-    .merci-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(232,180,164,.12);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      margin: 0 auto 1.5rem;
-    }
-    .merci-card h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      margin-bottom: .75rem;
-    }
-    .merci-lede {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .merci-steps {
-      text-align: left;
-      background: var(--green-900);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .merci-step {
-      display: flex;
-      align-items: flex-start;
-      gap: .85rem;
-      padding: .65rem 0;
-    }
-    .merci-step + .merci-step {
-      border-top: 1px solid var(--border);
-    }
-    .merci-step-num {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--green-900);
-      font-size: .82rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .merci-step-body {
-      flex: 1;
-      font-size: .92rem;
-      color: var(--text);
-    }
-    .merci-step-body strong { color: var(--text); }
-    .merci-step-body small { color: var(--text-muted); display: block; margin-top: .15rem; font-size: .82rem; }
+<style>
+  :root, [data-theme="light"] {
+    --bg: oklch(0.97 0.012 85);
+    --bg-soft: oklch(0.955 0.015 85);
+    --surface: oklch(0.99 0.008 85);
+    --ink: oklch(0.24 0.04 150);
+    --ink-2: oklch(0.42 0.03 150);
+    --ink-3: oklch(0.58 0.02 150);
+    --line: oklch(0.88 0.015 110);
+    --line-soft: oklch(0.92 0.012 110);
+    --accent: oklch(0.74 0.12 30);
+    --accent-ink: oklch(0.55 0.14 30);
+    --accent-soft: oklch(0.93 0.05 30);
+    --featured-bg: oklch(0.2 0.04 150);
+    --btn-primary-bg: var(--ink);
+    --btn-primary-ink: oklch(0.97 0.012 85);
+    --btn-primary-hover: oklch(0.32 0.05 150);
+    --grid-tint: oklch(0.88 0.02 140 / 0.5);
+  }
+  [data-theme="dark"] {
+    --bg: oklch(0.18 0.035 150);
+    --bg-soft: oklch(0.22 0.035 150);
+    --surface: oklch(0.24 0.035 150);
+    --ink: oklch(0.96 0.018 85);
+    --ink-2: oklch(0.78 0.02 110);
+    --ink-3: oklch(0.58 0.025 140);
+    --line: oklch(0.32 0.03 150);
+    --line-soft: oklch(0.28 0.03 150);
+    --accent: oklch(0.78 0.11 30);
+    --accent-ink: oklch(0.82 0.12 30);
+    --accent-soft: oklch(0.34 0.08 30);
+    --featured-bg: oklch(0.28 0.04 150);
+    --btn-primary-bg: var(--accent);
+    --btn-primary-ink: oklch(0.2 0.04 30);
+    --btn-primary-hover: oklch(0.82 0.12 30);
+    --grid-tint: oklch(0.3 0.035 150 / 0.4);
+  }
 
-    .merci-cta { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+  html { transition: background .3s ease; }
+  body { transition: background .3s ease, color .3s ease; }
 
-    .merci-faq {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: .85rem;
-      color: var(--text-muted);
-    }
-    .merci-faq a { color: var(--accent); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(var(--grid-tint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-tint) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
 
-    @media (max-width: 600px) {
-      .merci-card { padding: 2rem 1.5rem; }
-      .merci-card h1 { font-size: 1.4rem; }
-    }
-  </style>
+  h1, h2, h3 { font-family: 'Inter Tight', sans-serif; font-weight: 600; letter-spacing: -0.02em; margin: 0; color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: all .15s ease; font-family: inherit; }
+  .btn-outline { border-color: var(--line); background: var(--surface); color: var(--ink); }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-ink); }
+  .btn-primary:hover { background: var(--btn-primary-hover); }
+  .btn svg { width: 14px; height: 14px; }
+
+  /* ── Nav minimale ── */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in oklch, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; max-width: 1240px; }
+  .brand { font-family: 'Inter Tight'; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+  .brand .mark { width: 20px; height: 20px; border-radius: 5px; background: var(--featured-bg); position: relative; }
+  .brand .mark::after { content: ""; position: absolute; inset: 5px; border-radius: 2px; background: var(--accent); }
+  .nav-back { font-size: 13.5px; color: var(--ink-2); }
+  .nav-back:hover { color: var(--ink); }
+
+  /* ── Bloc principal ── */
+  main { padding: 80px 0 60px; }
+  .merci-card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 56px 48px; text-align: center;
+    box-shadow: 0 1px 0 rgba(40,60,45,.03), 0 20px 40px -20px rgba(30,50,40,.12);
+  }
+  .icon-check {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent-ink);
+    display: grid; place-items: center; margin: 0 auto 24px;
+  }
+  .icon-check svg { width: 28px; height: 28px; }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent-ink); margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 12px; }
+  .lead { color: var(--ink-2); font-size: 16px; margin: 0 auto 36px; max-width: 480px; line-height: 1.55; }
+  .lead strong { color: var(--ink); }
+
+  /* ── Étapes ── */
+  .steps {
+    text-align: left; background: var(--bg-soft); border: 1px solid var(--line-soft);
+    border-radius: 12px; padding: 8px 24px; margin-bottom: 36px;
+  }
+  .step {
+    display: flex; align-items: flex-start; gap: 16px; padding: 18px 0;
+  }
+  .step + .step { border-top: 1px solid var(--line-soft); }
+  .step-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--featured-bg); color: oklch(0.97 0.012 85);
+    font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px;
+    display: grid; place-items: center;
+  }
+  [data-theme="dark"] .step-num { background: var(--accent); color: var(--featured-bg); }
+  .step-body { flex: 1; }
+  .step-body strong { display: block; font-size: 14.5px; color: var(--ink); font-weight: 500; margin-bottom: 3px; font-family: 'Inter Tight'; }
+  .step-body small { display: block; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ── CTA + FAQ ── */
+  .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .faq {
+    margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line-soft);
+    font-size: 13px; color: var(--ink-2); line-height: 1.65;
+  }
+  .faq strong { color: var(--ink); }
+  .faq a { color: var(--accent-ink); }
+
+  @media (max-width: 600px) {
+    .merci-card { padding: 36px 24px; }
+    main { padding: 48px 0 40px; }
+  }
+
+  /* Theme toggle */
+  .theme-toggle { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; cursor: pointer; color: var(--ink-2); transition: all .15s; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+  .theme-toggle svg { width: 15px; height: 15px; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+</style>
 </head>
 <body>
 
-  <!-- Nav minimale -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">RODIA <span>by Lyvenia</span></a>
-      <a href="/rodia.html" class="btn-nav" style="font-size:.875rem;color:var(--text-muted);font-weight:600">← Retour</a>
-    </div>
-  </nav>
+<!-- ══════════ NAV ══════════ -->
+<nav class="top">
+  <div class="wrap">
+    <a href="/" class="brand"><span class="mark"></span>Lyvenia</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Thème">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </div>
+</nav>
 
-  <main class="merci-wrap">
+<main>
+  <div class="wrap">
     <div class="merci-card">
-      <div class="merci-icon">✓</div>
-      <h1>Bienvenue chez Lyvenia !</h1>
-      <p class="merci-lede">
-        Votre essai gratuit de <strong>14 jours</strong> est officiellement démarré.<br>
-        Voici la suite, en 3 étapes simples.
-      </p>
+      <div class="icon-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
 
-      <div class="merci-steps">
-        <div class="merci-step">
-          <div class="merci-step-num">1</div>
-          <div class="merci-step-body">
+      <div class="eyebrow">Inscription confirmée</div>
+      <h1>Bienvenue chez Lyvenia.</h1>
+      <p class="lead">Votre essai gratuit de <strong>14 jours</strong> est officiellement démarré. Voici la suite, en 3 étapes.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
             <strong>Consultez votre boîte mail</strong>
             <small>Vous recevez sous 30 secondes un email avec vos identifiants de connexion (mot de passe temporaire). Pensez à vérifier vos spams si rien n'arrive.</small>
           </div>
         </div>
-        <div class="merci-step">
-          <div class="merci-step-num">2</div>
-          <div class="merci-step-body">
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
             <strong>Téléchargez RODIA</strong>
             <small>Logiciel Windows à installer en 1 clic. Aucun matériel autre qu'un adaptateur OBD2 ELM327 standard n'est requis.</small>
           </div>
         </div>
-        <div class="merci-step">
-          <div class="merci-step-num">3</div>
-          <div class="merci-step-body">
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
             <strong>Connectez-vous et démarrez</strong>
-            <small>Saisissez votre email et votre mot de passe temporaire (à modifier au premier login), branchez votre adaptateur OBD2, et lancez votre premier diagnostic.</small>
+            <small>Saisissez votre email et mot de passe temporaire (à modifier au premier login), branchez votre adaptateur OBD2, et lancez votre premier diagnostic.</small>
           </div>
         </div>
       </div>
 
-      <div class="merci-cta">
-        <a href="/telecharger.html" class="btn btn-primary btn-lg">⬇ Télécharger RODIA</a>
-        <a href="mailto:contact@lyvenia.fr" class="btn btn-outline btn-lg">Contacter le support</a>
+      <div class="ctas">
+        <a href="/telecharger.html" class="btn btn-primary">
+          Télécharger RODIA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </a>
+        <a href="mailto:contact@lyvenia.fr" class="btn btn-outline">Contacter le support</a>
       </div>
 
-      <div class="merci-faq">
-        <strong style="color:var(--text)">Vous n'avez pas reçu l'email ?</strong><br>
-        Patientez 1 à 2 minutes (parfois Resend met un peu de temps), vérifiez vos spams, ou écrivez à
+      <div class="faq">
+        <strong>Vous n'avez pas reçu l'email ?</strong><br>
+        Patientez 1 à 2 minutes, vérifiez vos spams, ou écrivez à
         <a href="mailto:contact@lyvenia.fr">contact@lyvenia.fr</a> avec votre email d'inscription. On répond sous 24h ouvrées.
       </div>
     </div>
-  </main>
+  </div>
+</main>
+
+<script>
+  (function(){
+    const root = document.documentElement;
+    const saved = localStorage.getItem('lyvenia-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('lyvenia-theme', next);
+    });
+  })();
+</script>
 
 </body>
 </html>
