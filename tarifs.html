@@ -210,10 +210,11 @@
   .price-card.featured .btn-outline:hover { border-color: var(--accent); }
 
   .price-badge {
-    position: absolute; top: -1px; left: 50%; transform: translate(-50%, -50%);
+    align-self: flex-start;
     font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
-    padding: 4px 10px; background: var(--accent); color: var(--featured-bg);
+    padding: 5px 11px; background: var(--accent); color: var(--featured-bg);
     border-radius: 99px; white-space: nowrap;
+    box-shadow: 0 4px 12px -4px color-mix(in oklch, var(--accent) 60%, transparent);
   }
 
   .pricing-foot {
