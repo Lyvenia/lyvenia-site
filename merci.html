@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue chez Lyvenia — Votre essai RODIA a démarré</title>
+  <meta name="description" content="Votre essai gratuit RODIA est démarré. Vérifiez votre boîte mail pour vos identifiants de connexion.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .merci-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+    .merci-card {
+      max-width: 580px;
+      width: 100%;
+      background: var(--green-800);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+    .merci-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(232,180,164,.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.5rem;
+    }
+    .merci-card h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: .75rem;
+    }
+    .merci-lede {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .merci-steps {
+      text-align: left;
+      background: var(--green-900);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .merci-step {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      padding: .65rem 0;
+    }
+    .merci-step + .merci-step {
+      border-top: 1px solid var(--border);
+    }
+    .merci-step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--green-900);
+      font-size: .82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .merci-step-body {
+      flex: 1;
+      font-size: .92rem;
+      color: var(--text);
+    }
+    .merci-step-body strong { color: var(--text); }
+    .merci-step-body small { color: var(--text-muted); display: block; margin-top: .15rem; font-size: .82rem; }
+
+    .merci-cta { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+    .merci-faq {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .merci-faq a { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .merci-card { padding: 2rem 1.5rem; }
+      .merci-card h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav minimale -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">RODIA <span>by Lyvenia</span></a>
+      <a href="/rodia.html" class="btn-nav" style="font-size:.875rem;color:var(--text-muted);font-weight:600">← Retour</a>
+    </div>
+  </nav>
+
+  <main class="merci-wrap">
+    <div class="merci-card">
+      <div class="merci-icon">✓</div>
+      <h1>Bienvenue chez Lyvenia !</h1>
+      <p class="merci-lede">
+        Votre essai gratuit de <strong>14 jours</strong> est officiellement démarré.<br>
+        Voici la suite, en 3 étapes simples.
+      </p>
+
+      <div class="merci-steps">
+        <div class="merci-step">
+          <div class="merci-step-num">1</div>
+          <div class="merci-step-body">
+            <strong>Consultez votre boîte mail</strong>
+            <small>Vous recevez sous 30 secondes un email avec vos identifiants de connexion (mot de passe temporaire). Pensez à vérifier vos spams si rien n'arrive.</small>
+          </div>
+        </div>
+        <div class="merci-step">
+          <div class="merci-step-num">2</div>
+          <div class="merci-step-body">
+            <strong>Téléchargez RODIA</strong>
+            <small>Logiciel Windows à installer en 1 clic. Aucun matériel autre qu'un adaptateur OBD2 ELM327 standard n'est requis.</small>
+          </div>
+        </div>
+        <div class="merci-step">
+          <div class="merci-step-num">3</div>
+          <div class="merci-step-body">
+            <strong>Connectez-vous et démarrez</strong>
+            <small>Saisissez votre email et votre mot de passe temporaire (à modifier au premier login), branchez votre adaptateur OBD2, et lancez votre premier diagnostic.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="merci-cta">
+        <a href="/telecharger.html" class="btn btn-primary btn-lg">⬇ Télécharger RODIA</a>
+        <a href="mailto:contact@lyvenia.fr" class="btn btn-outline btn-lg">Contacter le support</a>
+      </div>
+
+      <div class="merci-faq">
+        <strong style="color:var(--text)">Vous n'avez pas reçu l'email ?</strong><br>
+        Patientez 1 à 2 minutes (parfois Resend met un peu de temps), vérifiez vos spams, ou écrivez à
+        <a href="mailto:contact@lyvenia.fr">contact@lyvenia.fr</a> avec votre email d'inscription. On répond sous 24h ouvrées.
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

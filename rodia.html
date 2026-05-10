@@ -168,70 +168,98 @@
     <div class="container">
       <div class="section-label">Tarifs</div>
       <h2>Simple, transparent, sans surprise</h2>
-      <p class="pricing-sub">Abonnement mensuel ou annuel. Résiliation à tout moment. 1 poste par licence.</p>
+      <p class="pricing-sub">Essai gratuit 14 jours. Résiliation à tout moment. Tarifs HT (TVA non applicable, art. 293 B CGI).</p>
+
+      <!-- Toggle Mensuel ↔ Annuel -->
+      <div class="pricing-toggle" role="tablist" aria-label="Période de facturation">
+        <button type="button" class="pricing-toggle-btn is-active" data-period="monthly" role="tab" aria-selected="true">Mensuel</button>
+        <button type="button" class="pricing-toggle-btn" data-period="annual" role="tab" aria-selected="false">
+          Annuel <span class="pricing-toggle-save">-20%</span>
+        </button>
+      </div>
 
       <div class="pricing-grid">
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Taxi</div>
-          <div class="pricing-price"><span class="price-amount">39</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>5 véhicules</strong></div>
+        <!-- ── Société (1-5) ── -->
+        <div class="pricing-card" data-tier="solo">
+          <div class="pricing-tier">Société</div>
+          <div class="pricing-price">
+            <span class="price-amount" data-monthly="60" data-annual="48">60</span>
+            <span class="price-unit">€ HT / mois</span>
+          </div>
+          <div class="pricing-billed" data-monthly-text="" data-annual-text="Facturé 576 € HT/an"></div>
+          <div class="pricing-vehicles">1 à <strong>5 véhicules</strong></div>
           <ul class="pricing-features">
             <li>✓ Diagnostic OBD2 illimité</li>
             <li>✓ Analyse IA des codes DTC</li>
             <li>✓ Gestion de flotte</li>
-            <li>✓ Rapports PDF</li>
+            <li>✓ Rapports PDF de diagnostic</li>
             <li>✓ Support email</li>
           </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
+          <button type="button" class="btn btn-outline btn-block js-checkout" data-tier="solo">Démarrer l'essai gratuit</button>
         </div>
 
-        <div class="pricing-card pricing-featured">
-          <div class="pricing-badge">Le plus populaire</div>
-          <div class="pricing-tier">PME</div>
-          <div class="pricing-price"><span class="price-amount">79</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>15 véhicules</strong></div>
+        <!-- ── Société + (6-10) — la plus populaire ── -->
+        <div class="pricing-card pricing-featured" data-tier="flotte">
+          <div class="pricing-badge">Le plus choisi</div>
+          <div class="pricing-tier">Société +</div>
+          <div class="pricing-price">
+            <span class="price-amount" data-monthly="110" data-annual="88">110</span>
+            <span class="price-unit">€ HT / mois</span>
+          </div>
+          <div class="pricing-billed" data-monthly-text="" data-annual-text="Facturé 1 056 € HT/an"></div>
+          <div class="pricing-vehicles">6 à <strong>10 véhicules</strong></div>
           <ul class="pricing-features">
-            <li>✓ Tout le plan Taxi</li>
+            <li>✓ Tout le plan Société</li>
             <li>✓ Tableau de bord avancé</li>
-            <li>✓ Alertes kilométrage</li>
+            <li>✓ Alertes kilométrage / CT</li>
             <li>✓ Export Excel flotte</li>
             <li>✓ Support prioritaire</li>
           </ul>
-          <a href="#contact" class="btn btn-primary btn-block coming-soon">Bientôt disponible</a>
+          <button type="button" class="btn btn-primary btn-block js-checkout" data-tier="flotte">Démarrer l'essai gratuit</button>
         </div>
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Flotte</div>
-          <div class="pricing-price"><span class="price-amount">139</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>35 véhicules</strong></div>
+        <!-- ── Société Pro (11-20) ── -->
+        <div class="pricing-card" data-tier="pro">
+          <div class="pricing-tier">Société Pro</div>
+          <div class="pricing-price">
+            <span class="price-amount" data-monthly="160" data-annual="128">160</span>
+            <span class="price-unit">€ HT / mois</span>
+          </div>
+          <div class="pricing-billed" data-monthly-text="" data-annual-text="Facturé 1 536 € HT/an"></div>
+          <div class="pricing-vehicles">11 à <strong>20 véhicules</strong></div>
           <ul class="pricing-features">
-            <li>✓ Tout le plan PME</li>
-            <li>✓ Analyse de patterns flotte</li>
+            <li>✓ Tout le plan Société +</li>
+            <li>✓ Multi-utilisateurs</li>
             <li>✓ Historique complet</li>
-            <li>✓ Multi-techniciens</li>
+            <li>✓ Audit conformité ARS</li>
             <li>✓ Support téléphonique</li>
           </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
+          <button type="button" class="btn btn-outline btn-block js-checkout" data-tier="pro">Démarrer l'essai gratuit</button>
         </div>
 
-        <div class="pricing-card">
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-price"><span class="price-amount">199</span><span class="price-unit">€ / mois</span></div>
-          <div class="pricing-vehicles">Jusqu'à <strong>60 véhicules</strong></div>
+        <!-- ── Enterprise (20+) ── -->
+        <div class="pricing-card pricing-enterprise" data-tier="enterprise">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-price">
+            <span class="price-amount price-amount-text">Sur devis</span>
+          </div>
+          <div class="pricing-vehicles"><strong>20+ véhicules</strong> · Multi-sites</div>
           <ul class="pricing-features">
-            <li>✓ Tout le plan Flotte</li>
-            <li>✓ Monitoring temps réel</li>
-            <li>✓ Analyse audio moteur</li>
+            <li>✓ Tout le plan Société Pro</li>
             <li>✓ Onboarding personnalisé</li>
-            <li>✓ SLA garanti</li>
+            <li>✓ Formation équipe sur site</li>
+            <li>✓ SLA garanti 99,9%</li>
+            <li>✓ Account manager dédié</li>
           </ul>
-          <a href="#contact" class="btn btn-outline btn-block coming-soon">Bientôt disponible</a>
+          <button type="button" class="btn btn-outline btn-block js-enterprise">Nous contacter</button>
         </div>
 
       </div>
 
-      <p class="pricing-note">Plus de 60 véhicules ? <a href="mailto:contact@lyvenia.fr">Contactez-nous</a> pour un tarif sur mesure.</p>
+      <p class="pricing-note">
+        Vos données restent en France (Postgres EU West) · RGPD-compliant · Paiement sécurisé via Stripe
+      </p>
     </div>
   </section>
 
@@ -269,5 +297,163 @@
     </div>
   </footer>
 
+  <!-- ══════════════════════════════════════════════════════════
+       MODAL : Démarrer l'essai (3 tiers payants)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="modal" id="checkoutModal" hidden role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button type="button" class="modal-close" data-close-modal aria-label="Fermer">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">Essai gratuit 14 jours</div>
+        <h2 id="checkoutTitle">Démarrez votre essai <span id="modalTierLabel">RODIA</span></h2>
+        <p class="modal-sub">Renseignez votre SIRET, on remplit le reste pour vous.</p>
+      </div>
+
+      <form class="modal-form" id="checkoutForm" novalidate>
+        <!-- ── SIRET avec auto-fill ── -->
+        <div class="modal-field">
+          <label for="f-siret">SIRET <span class="req">*</span></label>
+          <div class="modal-siret-wrap">
+            <input type="text" id="f-siret" name="siret" inputmode="numeric" maxlength="14" placeholder="14 chiffres" required>
+            <span class="modal-siret-status" id="siretStatus" aria-live="polite"></span>
+          </div>
+          <div class="modal-hint">On remplit automatiquement nom et adresse depuis l'INSEE.</div>
+        </div>
+
+        <!-- ── Informations société (auto-remplies) ── -->
+        <div class="modal-field">
+          <label for="f-company">Nom de société <span class="req">*</span></label>
+          <input type="text" id="f-company" name="company_name" placeholder="Auto-rempli depuis SIRET" required>
+        </div>
+
+        <div class="modal-row">
+          <div class="modal-field">
+            <label for="f-address">Adresse</label>
+            <input type="text" id="f-address" name="address" placeholder="Auto-rempli">
+          </div>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field flex-2">
+            <label for="f-city">Ville</label>
+            <input type="text" id="f-city" name="city" placeholder="Auto-rempli">
+          </div>
+          <div class="modal-field">
+            <label for="f-zip">Code postal</label>
+            <input type="text" id="f-zip" name="zip_code" placeholder="Auto-rempli">
+          </div>
+        </div>
+
+        <!-- ── Contact ── -->
+        <div class="modal-field">
+          <label for="f-email">Email professionnel <span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" placeholder="contact@votre-societe.fr" required>
+        </div>
+
+        <div class="modal-row">
+          <div class="modal-field">
+            <label for="f-phone">Téléphone <span class="opt">(optionnel)</span></label>
+            <input type="tel" id="f-phone" name="phone" placeholder="06 12 34 56 78">
+          </div>
+          <div class="modal-field">
+            <label for="f-activity">Activité <span class="opt">(optionnel)</span></label>
+            <select id="f-activity" name="activity">
+              <option value="">Sélectionner…</option>
+              <option value="taxi">Taxi / VTC</option>
+              <option value="vsl">VSL</option>
+              <option value="ambulance">Ambulance</option>
+              <option value="mixte">Mixte (plusieurs)</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ── Récapitulatif tarif ── -->
+        <div class="modal-summary">
+          <div class="modal-summary-row">
+            <span>Plan</span>
+            <strong id="summaryPlan">—</strong>
+          </div>
+          <div class="modal-summary-row">
+            <span>Essai gratuit</span>
+            <strong>14 jours, sans engagement</strong>
+          </div>
+          <div class="modal-summary-row modal-summary-row-total">
+            <span>Puis</span>
+            <strong id="summaryPrice">—</strong>
+          </div>
+        </div>
+
+        <!-- ── Erreurs ── -->
+        <div class="modal-error" id="modalError" hidden></div>
+
+        <!-- ── CTA ── -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="modalSubmit">
+          Continuer vers le paiement
+        </button>
+
+        <p class="modal-foot">
+          🔒 Paiement sécurisé via Stripe · Données traitées selon RGPD<br>
+          Une question ? <a href="mailto:contact@lyvenia.fr">contact@lyvenia.fr</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MODAL : Enterprise (>20 véhicules — sur devis)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="modal" id="enterpriseModal" hidden role="dialog" aria-modal="true" aria-labelledby="enterpriseTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button type="button" class="modal-close" data-close-modal aria-label="Fermer">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">Plan Enterprise</div>
+        <h2 id="enterpriseTitle">Parlons de votre flotte</h2>
+        <p class="modal-sub">Plus de 20 véhicules ? Multi-sites ? On vous prépare une offre sur mesure sous 24h.</p>
+      </div>
+
+      <form class="modal-form" id="enterpriseForm" novalidate>
+        <div class="modal-field">
+          <label for="ef-company">Nom de société <span class="req">*</span></label>
+          <input type="text" id="ef-company" name="company_name" required>
+        </div>
+        <div class="modal-field">
+          <label for="ef-email">Email professionnel <span class="req">*</span></label>
+          <input type="email" id="ef-email" name="email" required>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label for="ef-phone">Téléphone</label>
+            <input type="tel" id="ef-phone" name="phone">
+          </div>
+          <div class="modal-field">
+            <label for="ef-fleet">Taille de flotte <span class="req">*</span></label>
+            <input type="text" id="ef-fleet" name="fleet_size" placeholder="Ex : 35 véhicules" required>
+          </div>
+        </div>
+        <div class="modal-field">
+          <label for="ef-siret">SIRET <span class="opt">(optionnel)</span></label>
+          <input type="text" id="ef-siret" name="siret" maxlength="14">
+        </div>
+        <div class="modal-field">
+          <label for="ef-message">Précisions <span class="opt">(optionnel)</span></label>
+          <textarea id="ef-message" name="message" rows="3" placeholder="Multi-sites, besoins spécifiques, planning…"></textarea>
+        </div>
+
+        <div class="modal-error" id="enterpriseError" hidden></div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="enterpriseSubmit">
+          Envoyer ma demande
+        </button>
+
+        <p class="modal-foot">
+          On vous recontacte sous 24h ouvrées (lun-ven).
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
 </body>
 </html>
