@@ -137,6 +137,29 @@
       margin-bottom: .25rem;
     }
     .dl-step-content span { font-size: .85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Étape spéciale "SmartScreen" — encadré jaune pour attirer l'attention */
+    .dl-step-warn {
+      background: #fef3c7;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #f59e0b;
+      padding: 1.25rem;
+      border-radius: 10px;
+      margin: .5rem 0;
+    }
+    .dl-step-num-warn {
+      background: #f59e0b !important;
+      color: #fff !important;
+      font-size: 1.1rem !important;
+    }
+    .dl-step-warn .dl-step-content strong {
+      color: #92400e;
+      font-size: .95rem;
+    }
+    .dl-step-warn .dl-step-content span {
+      color: #78350f;
+    }
+
     .dl-support {
       padding: 70px 0;
       background: var(--green);
@@ -208,27 +231,53 @@
   <!-- ══ STEPS ══ -->
   <section class="dl-steps">
     <div class="lh-container">
-      <h2>Installation en 3 étapes</h2>
+      <h2>Installation en 4 étapes</h2>
       <div class="dl-steps-list">
         <div class="dl-step">
           <div class="dl-step-num">1</div>
           <div class="dl-step-content">
             <strong>Téléchargez l'installateur</strong>
-            <span>Cliquez sur le bouton ci-dessus pour télécharger <strong>RODIA-Setup-v1.0.0.exe</strong> (~39 Mo).</span>
+            <span>Cliquez sur le bouton ci-dessus. Le fichier <strong>RODIA-Setup-v1.1.5.exe</strong> (~34 Mo) se télécharge directement dans votre dossier <em>Téléchargements</em>.</span>
           </div>
         </div>
+
         <div class="dl-step">
           <div class="dl-step-num">2</div>
           <div class="dl-step-content">
-            <strong>Lancez l'installation</strong>
-            <span>Double-cliquez sur l'installateur et suivez les étapes. Windows peut afficher un avertissement SmartScreen — cliquez "Informations complémentaires" puis "Exécuter quand même". Choisissez votre dossier et créez un raccourci Bureau.</span>
+            <strong>Lancez l'installateur</strong>
+            <span>Double-cliquez sur <strong>RODIA-Setup-v1.1.5.exe</strong>. L'assistant d'installation Inno Setup s'ouvre — suivez les étapes (Suivant → Installer). RODIA se lance automatiquement à la fin.</span>
           </div>
         </div>
+
+        <div class="dl-step dl-step-warn">
+          <div class="dl-step-num dl-step-num-warn">⚠</div>
+          <div class="dl-step-content">
+            <strong>Si Windows affiche un avertissement bleu ou rouge</strong>
+            <span>
+              C'est normal pour une application récente non encore référencée par Microsoft.
+              RODIA est totalement sûr (édité par Lyvenia, hébergé en France, conforme RGPD).
+              <br><br>
+              <strong>Pour continuer :</strong><br>
+              1. Cliquez sur <strong>« Informations complémentaires »</strong> dans le message bleu/rouge<br>
+              2. Cliquez sur <strong>« Exécuter quand même »</strong> qui apparaît en bas<br>
+              3. L'installation se lance normalement
+            </span>
+          </div>
+        </div>
+
         <div class="dl-step">
           <div class="dl-step-num">3</div>
           <div class="dl-step-content">
             <strong>Connectez-vous</strong>
-            <span>Lancez RODIA depuis le raccourci, saisissez l'email et le mot de passe reçus par email. La licence est automatiquement liée à votre poste. Branchez votre adaptateur OBD2 et c'est parti.</span>
+            <span>Saisissez l'<strong>email</strong> et le <strong>mot de passe temporaire</strong> reçus par mail. Pensez à modifier votre mot de passe dans les Paramètres après le premier login.</span>
+          </div>
+        </div>
+
+        <div class="dl-step">
+          <div class="dl-step-num">4</div>
+          <div class="dl-step-content">
+            <strong>Branchez votre adaptateur et démarrez</strong>
+            <span>Connectez un <strong>adaptateur OBD2 ELM327</strong> (USB ou Bluetooth) sur le port OBD du véhicule. Lancez votre premier diagnostic depuis l'écran d'accueil. L'analyse IA prend 30 à 60 secondes.</span>
           </div>
         </div>
       </div>
