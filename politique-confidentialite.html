@@ -37,7 +37,7 @@
   <section class="legal-hero">
     <div class="lh-container legal-max">
       <h1>Politique de confidentialité</h1>
-      <p>Dernière mise à jour : avril 2026 — Conforme au RGPD (Règlement UE 2016/679)</p>
+      <p>Dernière mise à jour : mai 2026 — Conforme au RGPD (Règlement UE 2016/679)</p>
     </div>
   </section>
 
@@ -61,6 +61,18 @@
             <td>Durée de l'abonnement + 3 ans</td>
           </tr>
           <tr>
+            <td><strong>Raison sociale, SIRET, adresse de facturation</strong></td>
+            <td>Identification du client B2B, émission de factures conformes (mention SIRET obligatoire en France)</td>
+            <td>Obligation légale (CGI, art. 242 nonies A)</td>
+            <td>10 ans (obligation comptable)</td>
+          </tr>
+          <tr>
+            <td><strong>Téléphone, type d'activité</strong> (facultatifs)</td>
+            <td>Support technique personnalisé, statistiques internes</td>
+            <td>Consentement</td>
+            <td>Durée de l'abonnement</td>
+          </tr>
+          <tr>
             <td><strong>Empreinte machine</strong> (hash SHA-256 anonymisé)</td>
             <td>Verrouillage de la licence à un poste (1 licence = 1 machine)</td>
             <td>Intérêt légitime (protection anti-fraude)</td>
@@ -80,23 +92,35 @@
           </tr>
           <tr>
             <td><strong>Données de paiement</strong></td>
-            <td>Facturation (traitées par LemonSqueezy — non stockées par Lyvenia)</td>
+            <td>Traitement de l'abonnement (traitées par Stripe — non stockées par Lyvenia)</td>
             <td>Exécution du contrat</td>
             <td>Non stockées par Lyvenia</td>
           </tr>
         </tbody>
       </table>
-      <p><strong>Données NON collectées :</strong> Lyvenia ne collecte pas les données de diagnostic OBD2 (codes DTC, données véhicule). Ces données restent sur le poste du client et ne transitent pas par nos serveurs.</p>
+      <p><strong>Données NON collectées :</strong> Lyvenia ne collecte pas les données de diagnostic OBD2 (codes DTC, données véhicule, kilométrage). Ces données restent sur le poste du client et ne transitent par nos serveurs que sous forme anonymisée lors des analyses IA (codes DTC + freeze frame, sans identification du véhicule).</p>
 
       <h2>3. Sous-traitants et transferts</h2>
-      <p>Lyvenia fait appel aux sous-traitants suivants :</p>
+      <p>Lyvenia fait appel aux sous-traitants suivants. La majorité sont hébergés en Union Européenne. Pour les sous-traitants hors UE, les transferts sont encadrés par des garanties appropriées (clauses contractuelles types, décisions d'adéquation Commission européenne).</p>
+
+      <p><strong>🇪🇺 Sous-traitants situés en Union Européenne :</strong></p>
       <ul>
-        <li><strong>Railway Corp.</strong> (hébergement API) — San Francisco, USA — <a href="https://railway.app/legal/privacy" target="_blank">Politique de confidentialité</a></li>
-        <li><strong>Resend Inc.</strong> (envoi d'emails) — USA — <a href="https://resend.com/legal/privacy-policy" target="_blank">Politique de confidentialité</a></li>
-        <li><strong>Anthropic, PBC</strong> (analyse IA) — San Francisco, USA — <a href="https://www.anthropic.com/privacy" target="_blank">Politique de confidentialité</a> — Les requêtes IA ne contiennent pas de données personnelles identifiables.</li>
-        <li><strong>LemonSqueezy</strong> (paiements) — USA — <a href="https://www.lemonsqueezy.com/privacy" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>Railway Corp.</strong> (hébergement API + base de données) — Société américaine, mais <strong>infrastructure physique située à Amsterdam (Pays-Bas, UE)</strong>. Les données utilisateurs sont stockées et traitées uniquement sur des serveurs européens. — <a href="https://railway.app/legal/privacy" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>Stripe Payments Europe, Ltd.</strong> (paiements et abonnements) — Dublin, Irlande, UE — Filiale européenne de Stripe responsable du traitement des paiements pour les clients européens. — <a href="https://stripe.com/fr/privacy" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>Abby SAS</strong> (facturation conforme 2026 et déclarations comptables) — Société française, hébergement en UE. — <a href="https://abby.fr/politique-de-confidentialite" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>INSEE</strong> (vérification SIRET via API Sirene) — Autorité publique française. Aucun transfert de données personnelles — l'API renvoie uniquement des informations publiques sur les entreprises.</li>
+        <li><strong>OVHcloud</strong> (hébergement du site lyvenia.fr et emails) — Roubaix, France, UE. — <a href="https://www.ovh.com/fr/protection-donnees-personnelles/" target="_blank">Politique de confidentialité</a></li>
       </ul>
-      <p>Ces transferts vers des pays tiers sont encadrés par les garanties appropriées (clauses contractuelles types, décisions d'adéquation).</p>
+
+      <p><strong>🌍 Sous-traitants hors UE :</strong></p>
+      <ul>
+        <li><strong>Resend, Inc.</strong> (envoi d'emails transactionnels) — Delaware, USA — Utilisé uniquement pour les emails d'inscription, identifiants et notifications de service. Aucune donnée de diagnostic. — <a href="https://resend.com/legal/privacy-policy" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>Anthropic, PBC</strong> (analyse IA des codes DTC via Claude) — San Francisco, USA — Les requêtes envoyées contiennent uniquement des codes DTC, freeze frame et données techniques anonymisées. <strong>Aucun identifiant utilisateur ni VIN n'est transmis.</strong> — <a href="https://www.anthropic.com/privacy" target="_blank">Politique de confidentialité</a></li>
+        <li><strong>GitHub, Inc.</strong> (distribution de l'installateur RODIA) — San Francisco, USA — Utilisé exclusivement pour héberger le fichier d'installation public. Aucune donnée utilisateur n'est transmise. — <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Politique de confidentialité</a></li>
+      </ul>
+      <p style="font-size:.82rem;color:var(--text-muted);font-style:italic;margin-top:.75rem">
+        Les transferts vers les États-Unis sont encadrés par les <strong>clauses contractuelles types</strong> de la Commission européenne (décision 2021/914) et par le cadre <strong>Data Privacy Framework</strong> pour les sous-traitants certifiés.
+      </p>
 
       <h2>4. Sécurité des données</h2>
       <ul>
