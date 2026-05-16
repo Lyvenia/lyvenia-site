@@ -321,7 +321,9 @@
   .foot-grid ul a { font-size: 14px; color: var(--ink-2); }
   .foot-grid ul a:hover { color: var(--ink); }
   .foot-grid .brand-col p { color: var(--ink-2); font-size: 13.5px; max-width: 300px; margin: 12px 0 0; }
-  .foot-bottom { border-top: 1px solid var(--line-soft); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
+  .foot-bottom { border-top: 1px solid var(--line-soft); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; }
+  .foot-bottom a { color: var(--ink-3); }
+  .foot-bottom a:hover { color: var(--ink); text-decoration: underline; }
 
   @media (max-width: 960px) {
     .hero-grid, .diff, .cta-inner, .uc-panel.active { grid-template-columns: 1fr; gap: 40px; }
@@ -835,40 +837,42 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="brand-col">
-        <a href="#" class="brand"><span class="mark"></span>Lyvenia</a>
+        <a href="/" class="brand"><span class="mark"></span>Lyvenia</a>
         <p>Logiciels SaaS pour la mobilité professionnelle. RODIA est notre premier produit — diagnostic auto connecté + gestion de flotte.</p>
       </div>
       <div>
-        <h5>Produits</h5>
+        <h5>Produit</h5>
         <ul>
           <li><a href="#rodia">RODIA</a></li>
-          <li><a href="#">Téléchargement Windows</a></li>
-          <li><a href="#">Changelog</a></li>
-          <li><a href="#">Compatibilité OBD</a></li>
+          <li><a href="#workflow">Comment ça marche</a></li>
+          <li><a href="#usecases">Cas d'usage</a></li>
+          <li><a href="/telecharger.html">Télécharger</a></li>
         </ul>
       </div>
       <div>
         <h5>Entreprise</h5>
         <ul>
-          <li><a href="#">À propos</a></li>
-          <li><a href="#">Carrières</a></li>
-          <li><a href="#">Presse</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="mailto:contact@lyvenia.fr">Contact</a></li>
+          <li><a href="/politique-confidentialite.html">Sécurité &amp; RGPD</a></li>
         </ul>
       </div>
       <div>
-        <h5>Ressources</h5>
+        <h5>Légal</h5>
         <ul>
-          <li><a href="#">Centre d'aide</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Sécurité &amp; RGPD</a></li>
-          <li><a href="#">Statut</a></li>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="/cgv.html">CGV</a></li>
+          <li><a href="/politique-confidentialite.html">Confidentialité</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Lyvenia SAS</span>
-      <span>Mentions légales · CGU · Confidentialité</span>
+      <span>© 2026 Lyvenia — Bastien Rodrigues de Souza Meireles · Micro-entrepreneur</span>
+      <span>
+        <a href="/mentions-legales.html">Mentions légales</a> ·
+        <a href="/cgv.html">CGV</a> ·
+        <a href="/politique-confidentialite.html">Confidentialité</a>
+      </span>
     </div>
   </div>
 </footer>
