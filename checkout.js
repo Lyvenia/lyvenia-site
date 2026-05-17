@@ -205,6 +205,12 @@
       return showError("modalError", "Nom de société requis.");
     if (!isValidLuhn(data.siret || ""))
       return showError("modalError", "SIRET invalide. 14 chiffres avec checksum valide.");
+    if (!document.getElementById("f-cgv").checked)
+      return showError("modalError", "Vous devez accepter les CGV et la politique de confidentialité pour continuer.");
+
+    // Preuve d'acceptation des CGV — horodatée, transmise au backend (metadata Stripe + DB)
+    data.cgv_accepted    = "true";
+    data.cgv_accepted_at = new Date().toISOString();
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Préparation du paiement…";
