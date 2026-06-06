@@ -101,17 +101,18 @@
       </table>
       <p><strong>Données NON collectées :</strong> Lyvenia ne collecte pas les données de diagnostic OBD2 (codes DTC, données véhicule, kilométrage). Ces données restent sur le poste du client et ne transitent par nos serveurs que sous forme anonymisée lors des analyses IA (codes DTC + freeze frame, sans identification du véhicule).</p>
 
-      <h3 style="margin-top:24px">2 bis. Base VIN partagée (crowdsourcée)</h3>
-      <p>Pour améliorer l'identification automatique des véhicules diagnostiqués via RODIA, Lyvenia propose à ses utilisateurs de contribuer à une <strong>base partagée de numéros VIN et caractéristiques techniques de véhicules</strong>. Cette base permet à tout utilisateur RODIA de reconnaître automatiquement un véhicule dès la lecture du VIN par l'adaptateur OBD2.</p>
+      <h3 style="margin-top:24px">2 bis. Base de reconnaissance véhicules partagée (privacy by design)</h3>
+      <p>Pour améliorer l'identification automatique des véhicules diagnostiqués via RODIA, Lyvenia propose à ses utilisateurs de contribuer à une <strong>base partagée d'identification de modèles de véhicules</strong>. Cette base permet à tout utilisateur RODIA de reconnaître automatiquement le modèle, la marque et l'année d'un véhicule dès la lecture du VIN par l'adaptateur OBD2.</p>
+      <p><strong>Principe de minimisation des données (RGPD art. 5.1.c) :</strong> Lyvenia ne stocke <strong>jamais le VIN complet (17 caractères)</strong>. Seules les <strong>11 premières positions</strong> sont enregistrées, qui correspondent au modèle, à l'année et à l'usine de production — informations communes à tous les véhicules du même type. Les positions 12 à 17, qui constituent le numéro de série unique identifiant un véhicule individuel, ne sont <strong>jamais transmises ni stockées</strong> sur nos serveurs.</p>
       <ul>
-        <li><strong>Données partagées :</strong> VIN, marque, modèle, année, motorisation, carburant, type de boîte.</li>
-        <li><strong>Données NON partagées :</strong> identité du contributeur, identifiant du compte, codes DTC, kilométrage, données de diagnostic, notes privées, informations sur le propriétaire du véhicule.</li>
-        <li><strong>Anonymisation :</strong> chaque contribution est associée à un identifiant haché à sens unique (SHA-256) du compte utilisateur. Cet identifiant n'est jamais exposé en API et sert uniquement à la lutte anti-spam et au droit d'opposition.</li>
+        <li><strong>Données partagées :</strong> préfixe VIN (11 premières positions — sans identifiant unique), marque, modèle, année, motorisation, carburant, type de boîte.</li>
+        <li><strong>Données NON partagées :</strong> VIN complet (les 6 derniers chiffres identifiant le véhicule individuel restent sur votre poste), identité du contributeur, identifiant du compte, codes DTC, kilométrage, données de diagnostic, notes privées, informations sur le propriétaire du véhicule.</li>
+        <li><strong>Anonymisation du contributeur :</strong> chaque contribution est associée à un identifiant haché à sens unique (SHA-256) du compte utilisateur. Cet identifiant n'est jamais exposé en API et sert uniquement à la lutte anti-spam et au droit d'opposition.</li>
         <li><strong>Consentement :</strong> la contribution est <strong>opt-in</strong> — une demande explicite vous est faite après chaque diagnostic. Vous pouvez refuser à tout moment sans conséquence sur l'usage de RODIA.</li>
         <li><strong>Droit d'opposition (art. 17 RGPD) :</strong> vous pouvez à tout moment demander la suppression de l'intégralité de vos contributions en écrivant à <a href="mailto:contact@lyvenia.fr">contact@lyvenia.fr</a> ou via le bouton dédié dans les paramètres de RODIA.</li>
         <li><strong>Base de données :</strong> hébergée chez Railway (Amsterdam, UE), même infrastructure que les comptes utilisateurs.</li>
       </ul>
-      <p><strong>Base légale :</strong> intérêt légitime du responsable de traitement (amélioration du service par effet réseau) combiné au consentement explicite de l'utilisateur contributeur.</p>
+      <p><strong>Base légale :</strong> intérêt légitime du responsable de traitement (amélioration du service par effet réseau, principe de minimisation des données) combiné au consentement explicite de l'utilisateur contributeur.</p>
 
       <h2>3. Sous-traitants et transferts</h2>
       <p>Lyvenia fait appel aux sous-traitants suivants. La majorité sont hébergés en Union Européenne. Pour les sous-traitants hors UE, les transferts sont encadrés par des garanties appropriées (clauses contractuelles types, décisions d'adéquation Commission européenne).</p>
