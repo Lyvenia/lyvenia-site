@@ -114,6 +114,17 @@
       </ul>
       <p><strong>Base légale :</strong> intérêt légitime du responsable de traitement (amélioration du service par effet réseau, principe de minimisation des données) combiné au consentement explicite de l'utilisateur contributeur.</p>
 
+      <h4 style="margin-top:18px">2 bis bis. Extraction par photo de carte grise (option facultative)</h4>
+      <p>Pour accélérer la saisie, RODIA propose une fonctionnalité optionnelle permettant d'extraire automatiquement les caractéristiques techniques du véhicule depuis une photo de votre carte grise (Certificat d'Immatriculation).</p>
+      <ul>
+        <li><strong>Fonctionnement :</strong> la photo est transmise en temps réel à Claude (Anthropic), qui extrait uniquement les champs techniques (VIN, marque, modèle, année, motorisation, carburant). L'IA est instruite par un prompt strict d'<strong>ignorer</strong> tout champ contenant des données personnelles (nom du propriétaire C.1, adresse C.3, numéro d'immatriculation A).</li>
+        <li><strong>Non-conservation :</strong> la photo n'est <strong>ni stockée par Lyvenia</strong> (traitement en flux, jamais sur disque), <strong>ni utilisée pour entraîner Claude</strong> (l'API Anthropic respecte une politique de rétention zéro par défaut pour les requêtes commerciales — <a href="https://www.anthropic.com/privacy" target="_blank">voir politique Anthropic</a>).</li>
+        <li><strong>Consentement double :</strong> à chaque utilisation, une confirmation explicite vous est demandée avant l'envoi de la photo.</li>
+        <li><strong>Alternative manuelle :</strong> vous pouvez à tout moment saisir les données manuellement sans utiliser la photo.</li>
+        <li><strong>Responsabilité tiers :</strong> si vous photographiez la carte grise d'un véhicule qui ne vous appartient pas (cas d'un mécanicien sur un véhicule client), vous garantissez avoir obtenu le consentement du propriétaire.</li>
+      </ul>
+      <p><strong>Base légale :</strong> consentement explicite de l'utilisateur (RGPD art. 6.1.a) avant chaque envoi, combiné à un traitement en flux sans stockage.</p>
+
       <h2>3. Sous-traitants et transferts</h2>
       <p>Lyvenia fait appel aux sous-traitants suivants. La majorité sont hébergés en Union Européenne. Pour les sous-traitants hors UE, les transferts sont encadrés par des garanties appropriées (clauses contractuelles types, décisions d'adéquation Commission européenne).</p>
 
