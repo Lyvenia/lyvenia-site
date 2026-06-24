@@ -821,11 +821,29 @@
             <span class="pulse"></span>
             <span>Bientôt disponible</span>
           </div>
-          <h3 style="font-size:20px;margin:14px 0 6px;letter-spacing:-0.02em;">Lancement imminent</h3>
-          <p style="font-size:13.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.5;">Le formulaire d'inscription ouvrira ici dans les prochaines semaines. En attendant, écrivez-nous directement.</p>
-          <a href="/cdn-cgi/l/email-protection#dbb8b4b5afbab8af9bb7a2adbeb5b2baf5bda9e4a8aeb9b1beb8afe692b5af1872a91871affee9eb89949f929a" class="btn btn-primary" style="width:100%;justify-content:center;padding:11px;"><span class="__cf_email__" data-cfemail="cdaea2a3b9acaeb98da1b4bba8a3a4ace3abbf">[email&#160;protected]</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
+          <h3 style="font-size:20px;margin:14px 0 6px;letter-spacing:-0.02em;">Inscrivez-vous au lancement</h3>
+          <p style="font-size:13.5px;color:var(--ink-2);margin:0 0 16px;line-height:1.5;">Vous serez prévenu·e par email dès l'ouverture officielle des accès. Pas de spam, juste l'annonce.</p>
+
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              placeholder="votre@email.fr"
+              required
+              autocomplete="email"
+              spellcheck="false"
+              style="width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink-1);font-size:14px;font-family:inherit;margin-bottom:10px;outline:none;transition:border-color .15s ease;"
+              onfocus="this.style.borderColor='var(--accent-ink)'"
+              onblur="this.style.borderColor='var(--line)'"
+            >
+            <button type="submit" id="newsletter-submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:11px;">
+              <span id="newsletter-submit-text">M'inscrire</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <p id="newsletter-feedback" style="display:none;font-size:13px;line-height:1.5;margin:12px 0 0;padding:10px 12px;border-radius:8px;"></p>
         </div>
       </div>
     </div>
@@ -919,6 +937,72 @@
       }
     });
   });
+</script>
+
+<!-- ── Newsletter form ──────────────────────────────────────────────── -->
+<script>
+(function () {
+  const form     = document.getElementById('newsletter-form');
+  const emailEl  = document.getElementById('newsletter-email');
+  const btn      = document.getElementById('newsletter-submit');
+  const btnText  = document.getElementById('newsletter-submit-text');
+  const feedback = document.getElementById('newsletter-feedback');
+  if (!form || !emailEl || !btn || !feedback) return;
+
+  const API_URL = 'https://api.lyvenia.fr/newsletter/subscribe';
+  const EMAIL_RE = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+  function showFeedback(message, type) {
+    feedback.textContent = message;
+    feedback.style.display = 'block';
+    if (type === 'success') {
+      feedback.style.background    = 'rgba(76, 175, 80, 0.12)';
+      feedback.style.color         = '#1b5e20';
+      feedback.style.border        = '1px solid rgba(76, 175, 80, 0.35)';
+    } else {
+      feedback.style.background    = 'rgba(244, 67, 54, 0.10)';
+      feedback.style.color         = '#b71c1c';
+      feedback.style.border        = '1px solid rgba(244, 67, 54, 0.32)';
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (emailEl.value || '').trim().toLowerCase();
+
+    if (!EMAIL_RE.test(email)) {
+      showFeedback('Merci d’entrer une adresse email valide.', 'error');
+      emailEl.focus();
+      return;
+    }
+
+    btn.disabled    = true;
+    btnText.textContent = 'Inscription…';
+    feedback.style.display = 'none';
+
+    try {
+      const res = await fetch(API_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email: email, source: 'lyvenia.fr' }),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        form.style.display = 'none';
+        showFeedback('✓ ' + (data.message || 'Merci ! Vous serez prévenu·e dès l’ouverture des accès.'), 'success');
+      } else {
+        showFeedback(data.error || 'Une erreur est survenue. Réessayez plus tard.', 'error');
+        btn.disabled    = false;
+        btnText.textContent = 'M’inscrire';
+      }
+    } catch (err) {
+      showFeedback('Impossible de contacter le serveur. Réessayez dans quelques instants.', 'error');
+      btn.disabled    = false;
+      btnText.textContent = 'M’inscrire';
+    }
+  });
+})();
 </script>
 </body>
 </html>
